@@ -13,11 +13,11 @@ export const SharkBackground = () => {
       <Wave
         fill="url(#topGradient)"
         paused={false}
-        style={{height: '60%', position: 'absolute', top: 0, transform: 'rotate(180deg) scaleX(-1)'}}
+        style={{height: '50%', position: 'absolute', top: 0, transform: 'rotate(180deg) scaleX(-1)'}}
         options={{
-          height: 120,
-          amplitude: 120,
-          speed: 0.15,
+          height: 200,
+          amplitude: 300,
+          speed: 0.06,
           points: 2,
         }}
       >
@@ -31,11 +31,11 @@ export const SharkBackground = () => {
       <Wave
         fill="url(#midGradient)"
         paused={false}
-        style={{height: '82%', position: 'absolute', bottom: 0}}
+        style={{height: '70%', position: 'absolute', bottom: 0}}
         options={{
-          height: 120,
-          amplitude: 120,
-          speed: 0.15,
+          height: 100,
+          amplitude: 250,
+          speed: 0.08,
           points: 2,
         }}
       >
@@ -51,9 +51,9 @@ export const SharkBackground = () => {
         paused={false}
         style={{minHeight: '200px', height: '40%', position: 'absolute', bottom: 0}}
         options={{
-          height: 80,
-          amplitude: 80,
-          speed: 0.15,
+          height: 100,
+          amplitude: 200,
+          speed: 0.12,
           points: 2,
         }}
       >
