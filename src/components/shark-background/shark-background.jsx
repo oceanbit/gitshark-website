@@ -11,6 +11,24 @@ export const SharkBackground = () => {
   return (
     <div className="sharkBG" style={{backgroundColor: colors.primary_light}}>
       <Wave
+        fill="url(#topGradient)"
+        paused={false}
+        style={{height: '60%', position: 'absolute', top: 0, transform: 'rotate(180deg) scaleX(-1)'}}
+        options={{
+          height: 120,
+          amplitude: 120,
+          speed: 0.15,
+          points: 2,
+        }}
+      >
+        <defs>
+          <linearGradient id="topGradient" gradientTransform="rotate(-20)" x1="0" x2="1" y1="0.2" y2="0.4">
+            <stop offset="0%" stopColor={dark20} />
+            <stop offset="70%" stopColor={dark0} />
+          </linearGradient>
+        </defs>
+      </Wave>
+      <Wave
         fill="url(#midGradient)"
         paused={false}
         style={{height: '82%', position: 'absolute', bottom: 0}}
