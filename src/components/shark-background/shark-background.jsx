@@ -94,7 +94,7 @@ export const SharkBackground = () => {
           params={{
             particles: {
               number: {
-                value: 20,
+                value: 30,
                 density: {
                   enable: true,
                   value_area: 800,
@@ -104,7 +104,7 @@ export const SharkBackground = () => {
                 value: "#000",
               },
               opacity: {
-                value: 0.4,
+                value: 0,
                 random: true,
                 anim: {
                   enable: false,
