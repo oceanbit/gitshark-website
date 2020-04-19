@@ -36,7 +36,7 @@ export const SharkBackground = () => {
           height: 100,
           amplitude: 250,
           speed: 0.08,
-          points: 2,
+          points: 3,
         }}
       >
         <defs>
@@ -54,7 +54,7 @@ export const SharkBackground = () => {
           height: 100,
           amplitude: 200,
           speed: 0.12,
-          points: 2,
+          points: 3,
         }}
       >
         <defs>
