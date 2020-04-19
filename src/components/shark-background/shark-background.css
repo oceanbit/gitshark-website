@@ -1,4 +1,4 @@
-.sharkBG {
+.sharkBGContainer {
     position: absolute;
     top: 0;
     left: 0;
@@ -6,8 +6,27 @@
     width: 100%;
 }
 
-.sharkBG svg {
+.sharkBG {
+    height: 100%;
+    width: 100%;
+}
 
+.lighting {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    background: linear-gradient(1deg, rgba(255,255,255,0), rgba(255,255,255,1));
+    background-size: 200% 200%;
+    animation: LightingAnimation 10s ease infinite;
+}
+
+@keyframes LightingAnimation {
+    0%{background-position:50% 100%}
+    50%{background-position:50% 60%}
+    100%{background-position:50% 100%}
 }
 
 .particlesContainer {
