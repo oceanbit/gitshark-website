@@ -47,14 +47,7 @@ export const colors = {
   surface_light: '#FFFFFF', // White
 };
 
-const baseTheme = {
-  roundness: 8,
-  disabledOpacity: 0.4,
-  lessRoundness: 4,
-};
-
 export const theme = {
-  ...baseTheme,
   colors: {
     background: new DynamicValue(
       colors.background_light,

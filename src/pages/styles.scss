@@ -1,0 +1,50 @@
+@import "../styles/font-styles";
+
+:root {
+  --roundness: 8px;
+  --disabledOpacity: 0.4;
+  --lessRoundness: 4px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sharkBackground {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sharkHeader {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.bodySheet {
+  margin: 90vh auto 0;
+  max-width: 960px;
+  height: 200vh;
+  border-radius: var(--roundness);
+  background: var(--floating_surface);
+  padding: 72px 32px;
+}
+
+.displayHeader {
+  @extend %display;
+  text-align: center;
+  color: var(--on_surface);
+  margin-bottom: 16px;
+}
