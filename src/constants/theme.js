@@ -1,3 +1,10 @@
+class DynamicValue {
+  constructor(light, dark) {
+    this.light = light;
+    this.dark = dark;
+  }
+}
+
 export const colors = {
   background_dark: '#00081A', // Navy Black
   background_light: '#F7F9FD', // Navy 50
@@ -38,4 +45,75 @@ export const colors = {
   ripple_surface_light: 'rgba(0, 51, 153, 0.12)', // Electric Blue 700 0.12 alpha
   surface_dark: '#0D1526', // Navy 1000
   surface_light: '#FFFFFF', // White
+};
+
+const baseTheme = {
+  roundness: 8,
+  disabledOpacity: 0.4,
+  lessRoundness: 4,
+};
+
+export const theme = {
+  ...baseTheme,
+  colors: {
+    background: new DynamicValue(
+      colors.background_light,
+      colors.background_dark,
+    ),
+    change_addition: new DynamicValue(
+      colors.change_addition_light,
+      colors.change_addition_dark,
+    ),
+    change_mixed: new DynamicValue(
+      colors.change_mixed_light,
+      colors.change_mixed_dark,
+    ),
+    change_refactored: new DynamicValue(
+      colors.change_refactored_light,
+      colors.change_refactored_dark,
+    ),
+    change_removal: new DynamicValue(
+      colors.change_removal_light,
+      colors.change_removal_dark,
+    ),
+    divider: new DynamicValue(colors.divider_light, colors.divider_dark),
+    error: new DynamicValue(colors.error_light, colors.error_dark),
+    error_bubble: new DynamicValue(
+      colors.error_bubble_light,
+      colors.error_bubble_dark,
+    ),
+    floating_surface: new DynamicValue(
+      colors.floating_surface_light,
+      colors.floating_surface_dark,
+    ),
+    on_change: new DynamicValue(colors.on_change_light, colors.on_change_dark),
+    on_error: new DynamicValue(colors.on_error_light, colors.on_error_dark),
+    on_primary: new DynamicValue(
+      colors.on_primary_light,
+      colors.on_primary_dark,
+    ),
+    on_surface: new DynamicValue(
+      colors.on_surface_light,
+      colors.on_surface_dark,
+    ),
+    on_surface_secondary: new DynamicValue(
+      colors.on_surface_secondary_light,
+      colors.on_surface_secondary_dark,
+    ),
+    // Please don't use this unless you ABSOLUTELY have to
+    on_surface_secondary_no_opacity: new DynamicValue(
+      colors.on_surface_secondary_light_no_opacity,
+      colors.on_surface_secondary_dark_no_opacity,
+    ),
+    primary: new DynamicValue(colors.primary_light, colors.primary_dark),
+    ripple_primary: new DynamicValue(
+      colors.ripple_primary_light,
+      colors.ripple_primary_dark,
+    ),
+    ripple_surface: new DynamicValue(
+      colors.ripple_surface_light,
+      colors.ripple_surface_dark,
+    ),
+    surface: new DynamicValue(colors.surface_light, colors.surface_dark),
+  },
 };

@@ -4,11 +4,16 @@ import Wave from "react-wavify"
 import hexToRgba from "hex-to-rgba"
 import { colors } from "../../constants"
 import "./shark-background.css"
+import { useWindowSize } from "../../hooks"
 
 const dark20 = hexToRgba(colors.primary_dark, 0.2)
 const dark0 = hexToRgba(colors.primary_dark, 0.0)
 
 export const SharkBackground = () => {
+  const {innerWidth} = useWindowSize()
+
+  const threePoints = innerWidth > 1199;
+
   return (
     <div className="sharkBGContainer">
       <div className="lighting" />
@@ -54,7 +59,7 @@ export const SharkBackground = () => {
             height: 100,
             amplitude: 250,
             speed: 0.08,
-            points: 3,
+            points: threePoints ? 3 : 2,
           }}
         >
           <defs>
@@ -77,7 +82,7 @@ export const SharkBackground = () => {
             height: 100,
             amplitude: 200,
             speed: 0.12,
-            points: 3,
+            points: threePoints ? 3 : 2,
           }}
         >
           <defs>
@@ -160,8 +165,9 @@ export const SharkBackground = () => {
                   speed: 300,
                 },
                 repulse: {
-                  distance: 100,
+                  distance: 20,
                   duration: 1,
+                  speed: 0.2,
                 },
               },
             },
@@ -171,3 +177,7 @@ export const SharkBackground = () => {
     </div>
   )
 }
+
+
+
+
