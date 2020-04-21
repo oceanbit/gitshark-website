@@ -48,3 +48,15 @@ body {
   color: var(--on_surface);
   margin-bottom: 16px;
 }
+
+.body2Text {
+  @extend %body_02;
+  color: var(--on_surface_secondary);
+  text-align: center;
+}
+
+hr {
+  margin: 32px 0;
+  border: 0;
+  border-top: 2px solid var(--divider);
+}

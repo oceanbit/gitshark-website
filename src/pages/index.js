@@ -15,7 +15,21 @@ const IndexPage = () => (
         <img src="/shark_header.png" alt={"GitShark"} />
       </div>
       <div className="bodySheet">
-        <h1 className="displayHeader">Surf through your repos, <br/>wherever you go. 🦈</h1>
+        <h1 className="displayHeader">
+          Surf through your repos, <br />
+          wherever you go. 🦈
+        </h1>
+        <p className="body2Text">
+          GitShark is a mobile git client that allows you to manage
+          repositories, checkout branches, write and commit changes and much
+          more, right from your mobile device.
+        </p>
+        <hr />
+        <p className="body2Text">
+          Desktop and iOS versions are coming soon!
+          <br />
+          You can sign up to receive alerts when we have something to share.
+        </p>
       </div>
     </div>
   </ThemeProvider>
