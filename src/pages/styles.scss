@@ -1,4 +1,5 @@
 @import "../styles/font-styles";
+@import "../styles/utils";
 
 :root {
   --roundness: 8px;
@@ -36,7 +37,7 @@ body {
 .bodySheet {
   margin: 90vh auto 0;
   max-width: 960px;
-  height: 200vh;
+  min-height: 200vh;
   border-radius: var(--roundness);
   background: var(--floating_surface);
   padding: 72px 32px;
@@ -50,6 +51,7 @@ body {
   text-align: center;
   color: var(--on_surface);
   margin-bottom: 16px;
+  margin-top: 0;
 }
 
 .body2Text {
@@ -96,7 +98,7 @@ body {
 hr {
   margin: 32px 0;
   border: 0;
-  border-top: 2px solid var(--divider);
+  border-top: 1px solid var(--divider);
 }
 
 .greyBox {
@@ -114,20 +116,55 @@ hr {
   display: block;
 }
 
+.svgShadow {
+  filter: drop-shadow( 0px 3px 3px rgba(19, 42, 88, 0.0196802)) drop-shadow(0px 7px 6px rgba(19, 42, 88, 0.03)) drop-shadow(0px 13px 10px rgba(19, 42, 88, 0.04)) drop-shadow(0px 23px 18px rgba(19, 42, 88, 0.05)) drop-shadow(0px 42px 34px rgba(19, 42, 88, 0.06));
+}
+
 .screenshotRow {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 32px;
   margin-bottom: 32px;
+
+
+  @include forDesktop() {
+    flex-direction: row;
+  }
 }
 
 .repositories,
 .branches {
   flex-grow: 1;
+  margin-bottom: 32px;
+
+  @include forDesktop() {
+    width: 1px;
+  }
 }
-.repositories {
-  margin-right: 16px;
+
+@include forDesktop() {
+  .repositories {
+    margin-right: 16px;
+  }
+  .branches {
+    margin-left: 16px;
+  }
 }
-.branches {
-  margin-left: 16px;
+
+.featureTitle {
+  @extend %headline_02;
+  margin: 0;
+  text-align: center;
+  color: var(--on_surface);
+}
+
+.featureBody {
+  @extend %body_01;
+  text-align: center;
+  margin: 0;
+  color: var(--on_surface);
+}
+
+.featureDescribeContainer {
+  padding: 24px;
 }

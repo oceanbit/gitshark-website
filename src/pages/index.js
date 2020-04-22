@@ -7,8 +7,8 @@ import { DarkLightSelector } from "../components/dark-light-selector"
 import Button from "@material-ui/core/Button"
 import { OneToOneRatio } from "../components/one-to-one-ratio"
 
-import RepoSVG from '../assets/repository_list.svg';
-import BranchSVG from '../assets/branch_dropdown.svg';
+import RepoSVG from "../assets/repository_list.svg"
+import BranchSVG from "../assets/branch_dropdown.svg"
 
 const IndexPage = () => (
   <ThemeProvider>
@@ -44,16 +44,29 @@ const IndexPage = () => (
           <div className="repositories">
             <OneToOneRatio>
               <div className="greyBox">
-                <RepoSVG className="imagePreview"/>
+                <RepoSVG className="imagePreview svgShadow" />
               </div>
             </OneToOneRatio>
+            <div className={"featureDescribeContainer"}>
+              <h2 className={"featureTitle"}>Repositories</h2>
+              <p className="featureBody">
+                Create, clone, add and manage all of your repositories
+              </p>
+            </div>
           </div>
           <div className="branches">
             <OneToOneRatio>
               <div className="greyBox">
-                <BranchSVG className="imagePreview"/>
+                <BranchSVG className="imagePreview svgShadow" />
               </div>
             </OneToOneRatio>
+            <div className={"featureDescribeContainer"}>
+              <h2 className={"featureTitle"}>Branches</h2>
+              <p className="featureBody">
+                View local branches' status, check their history and add new
+                ones
+              </p>
+            </div>
           </div>
         </div>
         <DarkLightSelector />
