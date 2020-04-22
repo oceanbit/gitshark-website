@@ -5,6 +5,10 @@ import { ThemeProvider } from "../constants/theme-context"
 import "./styles.scss"
 import { DarkLightSelector } from "../components/dark-light-selector"
 import Button from "@material-ui/core/Button"
+import { OneToOneRatio } from "../components/one-to-one-ratio"
+
+import RepoSVG from '../assets/repository_list.svg';
+import BranchSVG from '../assets/branch_dropdown.svg';
 
 const IndexPage = () => (
   <ThemeProvider>
@@ -35,6 +39,22 @@ const IndexPage = () => (
         <div className="signupInputContainer">
           <input placeholder={"Email address"} className={"signupInput"} />
           <Button className="signupBtn">Sign up</Button>
+        </div>
+        <div className="screenshotRow">
+          <div className="repositories">
+            <OneToOneRatio>
+              <div className="greyBox">
+                <RepoSVG className="imagePreview"/>
+              </div>
+            </OneToOneRatio>
+          </div>
+          <div className="branches">
+            <OneToOneRatio>
+              <div className="greyBox">
+                <BranchSVG className="imagePreview"/>
+              </div>
+            </OneToOneRatio>
+          </div>
         </div>
         <DarkLightSelector />
       </div>

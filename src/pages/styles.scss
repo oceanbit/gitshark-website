@@ -75,6 +75,11 @@ body {
   display: block;
   border: 1px solid var(--divider);
   border-radius: var(--roundness);
+  background: transparent;
+}
+
+.signupInput::placeholder {
+  color: var(--on_surface_secondary);
 }
 
 .signupBtn {
@@ -84,7 +89,7 @@ body {
   color: var(--on_primary) !important;
   width: 92px;
   border-radius: var(--roundness) !important;
-  position: absolute;
+  position: absolute !important;
   right: 0;
 }
 
@@ -92,4 +97,37 @@ hr {
   margin: 32px 0;
   border: 0;
   border-top: 2px solid var(--divider);
+}
+
+.greyBox {
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--divider);
+  background: var(--tinted_surface);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.imagePreview {
+  max-width: 80%;
+  margin: 50px auto 0;
+  display: block;
+}
+
+.screenshotRow {
+  display: flex;
+  flex-direction: row;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.repositories,
+.branches {
+  flex-grow: 1;
+}
+.repositories {
+  margin-right: 16px;
+}
+.branches {
+  margin-left: 16px;
 }
