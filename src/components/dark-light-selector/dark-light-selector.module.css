@@ -1,0 +1,42 @@
+.container {
+    position: relative;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--divider);
+    display: inline-block;
+
+    padding: 8px;
+}
+
+.greyBtn {
+    background: transparent !important;
+    color: var(--on_surface_secondary) !important;
+}
+
+.buttonBase {
+    height: 48px;
+    width: 164px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 0;
+    cursor: pointer;
+}
+
+.firstSelected {
+    clip-path: inset(0 50% 0 0 round 4px);
+}
+
+.secondSelected {
+    clip-path: inset(0 0 0 50% round 4px);
+}
+
+.blueBtnContainer {
+    position: absolute;
+    transition: 300ms clip-path;
+    z-index: 1;
+}
+
+.blueBtn {
+    background: var(--primary) !important;
+    color: var(--on_primary) !important;
+}
