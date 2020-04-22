@@ -4,6 +4,7 @@ import { SharkBackground } from "../components/shark-background"
 import { ThemeProvider } from "../constants/theme-context"
 import "./styles.scss"
 import { DarkLightSelector } from "../components/dark-light-selector"
+import Button from "@material-ui/core/Button"
 
 const IndexPage = () => (
   <ThemeProvider>
@@ -31,6 +32,10 @@ const IndexPage = () => (
           <br />
           You can sign up to receive alerts when we have something to share.
         </p>
+        <div className="signupInputContainer">
+          <input placeholder={"Email address"} className={"signupInput"} />
+          <Button className="signupBtn">Sign up</Button>
+        </div>
         <DarkLightSelector />
       </div>
     </div>

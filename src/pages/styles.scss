@@ -40,6 +40,9 @@ body {
   border-radius: var(--roundness);
   background: var(--floating_surface);
   padding: 72px 32px;
+  box-shadow: 0px 3px 3px rgba(19, 42, 88, 0.0196802),
+    0px 7px 6px rgba(19, 42, 88, 0.03), 0px 13px 10px rgba(19, 42, 88, 0.04),
+    0px 23px 18px rgba(19, 42, 88, 0.05), 0px 42px 34px rgba(19, 42, 88, 0.06);
 }
 
 .displayHeader {
@@ -53,6 +56,36 @@ body {
   @extend %body_02;
   color: var(--on_surface_secondary);
   text-align: center;
+}
+
+.signupInputContainer {
+  margin: 0 auto;
+  max-width: 576px;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.signupInput {
+  @extend %body_01;
+  color: var(--on_surface);
+  padding: 16px 108px 16px 8px;
+  flex-grow: 1;
+  display: block;
+  border: 1px solid var(--divider);
+  border-radius: var(--roundness);
+}
+
+.signupBtn {
+  margin: 0 8px !important;
+  padding: 8px !important;
+  background: var(--primary) !important;
+  color: var(--on_primary) !important;
+  width: 92px;
+  border-radius: var(--roundness) !important;
+  position: absolute;
+  right: 0;
 }
 
 hr {
