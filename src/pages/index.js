@@ -9,6 +9,7 @@ import { OneToOneRatio } from "../components/one-to-one-ratio"
 
 import RepoSVG from "../assets/repository_list.svg"
 import BranchSVG from "../assets/branch_dropdown.svg"
+import DarkModeSVG from "../assets/settings_dark_mode.svg"
 import { SeperateToOverlapImages } from "../components/seperate-to-overlap-images/seperate-to-overlap-images"
 
 const IndexPage = () => (
@@ -70,8 +71,21 @@ const IndexPage = () => (
             </div>
           </div>
         </div>
-        <SeperateToOverlapImages/>
-        <DarkLightSelector />
+        <SeperateToOverlapImages />
+        <div className={"featureDescribeContainer featureMargin"}>
+          <h2 className={"featureTitle"}>Tree & Commits</h2>
+          <p className="featureBody">Description</p>
+        </div>
+        <div className="greyBox">
+          <OneToOneRatio className={"darkSelectorOneToOne"}>
+            <DarkLightSelector className={"darkSelector"} />
+            <DarkModeSVG className={"imagePreview svgShadow darkSelectorImage"} />
+          </OneToOneRatio>
+        </div>
+        <div className={"featureDescribeContainer featureMargin"}>
+          <h2 className={"featureTitle"}>Dark mode</h2>
+          <p className="featureBody">Go ahead. Try it.</p>
+        </div>
       </div>
     </div>
   </ThemeProvider>

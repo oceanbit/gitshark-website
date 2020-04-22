@@ -5,6 +5,7 @@
   --roundness: 8px;
   --disabledOpacity: 0.4;
   --lessRoundness: 4px;
+  font-size: 1rem;
 }
 
 body {
@@ -81,6 +82,7 @@ body {
 }
 
 .signupInput::placeholder {
+  @extend %body_01;
   color: var(--on_surface_secondary);
 }
 
@@ -117,15 +119,17 @@ hr {
 }
 
 .svgShadow {
-  filter: drop-shadow( 0px 3px 3px rgba(19, 42, 88, 0.0196802)) drop-shadow(0px 7px 6px rgba(19, 42, 88, 0.03)) drop-shadow(0px 13px 10px rgba(19, 42, 88, 0.04)) drop-shadow(0px 23px 18px rgba(19, 42, 88, 0.05)) drop-shadow(0px 42px 34px rgba(19, 42, 88, 0.06));
+  filter: drop-shadow(0px 3px 3px rgba(19, 42, 88, 0.0196802))
+    drop-shadow(0px 7px 6px rgba(19, 42, 88, 0.03))
+    drop-shadow(0px 13px 10px rgba(19, 42, 88, 0.04))
+    drop-shadow(0px 23px 18px rgba(19, 42, 88, 0.05))
+    drop-shadow(0px 42px 34px rgba(19, 42, 88, 0.06));
 }
 
 .screenshotRow {
   display: flex;
   flex-direction: column;
   margin-top: 32px;
-  margin-bottom: 32px;
-
 
   @include forDesktop() {
     flex-direction: row;
@@ -167,4 +171,31 @@ hr {
 
 .featureDescribeContainer {
   padding: 24px;
+}
+
+.featureMargin {
+  margin-bottom: 32px;
+}
+
+.darkSelectorOneToOne {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 100%;
+  @include forDesktop() {
+    width: 50% !important;
+    padding-top: 50% !important;
+  }
+}
+
+.darkSelector {
+  z-index: 1;
+  position: absolute !important;
+  width: calc(60%);
+  top: 62%;
+  left: calc(50% - 4px);
+  transform: translateX(-50%);
+}
+
+.darkSelectorImage {
+  margin-top: 20px;
 }

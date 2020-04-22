@@ -4,8 +4,7 @@
     background: var(--surface);
     border: 1px solid var(--divider);
     display: inline-block;
-
-    padding: 8px;
+    padding: 4px;
 }
 
 .greyBtn {
@@ -14,8 +13,8 @@
 }
 
 .buttonBase {
-    height: 48px;
-    width: 164px;
+    height: 40px;
+    width: 50%;
     font-size: 1rem;
     font-weight: 500;
     border: 0;
@@ -34,6 +33,8 @@
     position: absolute;
     transition: 300ms clip-path;
     z-index: 1;
+    /* Minus the padding */
+    width: calc(100% - 8px);
 }
 
 .blueBtn {

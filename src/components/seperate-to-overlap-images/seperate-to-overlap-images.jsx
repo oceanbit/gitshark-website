@@ -64,14 +64,14 @@ export const SeperateToOverlapImages = () => {
       style={{ marginTop: -1 * leftImageTop, marginBottom: rightImageTop }}
     >
       <HistorySVG
-        className={styles.image}
+        className={`${styles.image} svgShadow`}
         style={{
           top: leftImageTop,
           left: leftImageLeft,
         }}
       />
       <CommitSVG
-        className={styles.image}
+        className={`${styles.image} svgShadow`}
         style={{
           top: rightImageTop,
           right: rightImageRight,

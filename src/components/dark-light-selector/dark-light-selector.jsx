@@ -3,11 +3,11 @@ import { ButtonBase } from "@material-ui/core"
 import * as styles from "./dark-light-selector.module.css"
 import { ThemeContext } from "../../constants/theme-context"
 
-export const DarkLightSelector = () => {
+export const DarkLightSelector = ({className = ''}) => {
   const { colorMode, setColorMode } = React.useContext(ThemeContext)
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <div
         className={`${styles.blueBtnContainer} ${
           colorMode === "light" ? styles.firstSelected : styles.secondSelected
