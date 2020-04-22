@@ -1,0 +1,12 @@
+.container {
+  position: relative;
+  height: 660px;
+}
+
+.image {
+  position: absolute;
+  max-width: 80%;
+  width: 300px;
+  transition: top 300ms ease-in-out, left 300ms ease-in-out,
+    right 300ms ease-in-out;
+}

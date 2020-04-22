@@ -9,6 +9,7 @@ import { OneToOneRatio } from "../components/one-to-one-ratio"
 
 import RepoSVG from "../assets/repository_list.svg"
 import BranchSVG from "../assets/branch_dropdown.svg"
+import { SeperateToOverlapImages } from "../components/seperate-to-overlap-images/seperate-to-overlap-images"
 
 const IndexPage = () => (
   <ThemeProvider>
@@ -69,6 +70,7 @@ const IndexPage = () => (
             </div>
           </div>
         </div>
+        <SeperateToOverlapImages/>
         <DarkLightSelector />
       </div>
     </div>

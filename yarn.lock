@@ -10273,6 +10273,11 @@ pnp-webpack-plugin@^1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
+polylinear-scale@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/polylinear-scale/-/polylinear-scale-1.1.6.tgz#ac53638c294255538cb3ddcf238af9541045d310"
+  integrity sha1-rFNjjClCVVOMs93PI4r5VBBF0xA=
+
 popper.js@^1.16.1-lts:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
