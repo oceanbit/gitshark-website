@@ -10,7 +10,11 @@ import { OneToOneRatio } from "../components/one-to-one-ratio"
 import RepoSVG from "../assets/repository_list.svg"
 import BranchSVG from "../assets/branch_dropdown.svg"
 import DarkModeSVG from "../assets/settings_dark_mode.svg"
+import NoAccountSVG from "../assets/settings_no_account.svg"
+import GitHubLinkedSVG from "../assets/settings_github_linked.svg"
+import GitHubSVG from '../assets/github.svg';
 import { SeperateToOverlapImages } from "../components/seperate-to-overlap-images/seperate-to-overlap-images"
+import { AnimatedLine } from "../components/animated-line/animated-line"
 
 const IndexPage = () =>
   (
@@ -75,6 +79,17 @@ const IndexPage = () =>
           <SeperateToOverlapImages/>
           <div className={"featureDescribeContainer featureMargin"}>
             <h2 className={"featureTitle"}>Tree & Commits</h2>
+            <p className="featureBody">Description</p>
+          </div>
+          <div className="greyBox githubContainer">
+            <NoAccountSVG className={"gitHubImages noGHAccountImg imagePreview svgShadow"}/>
+            <AnimatedLine className={"leftLine"}/>
+            <GitHubSVG className={"githubLogo"}/>
+            <AnimatedLine className={"rightLine"}/>
+            <GitHubLinkedSVG className={"gitHubImages ghAccountImg imagePreview svgShadow"}/>
+          </div>
+          <div className={"featureDescribeContainer featureMargin"}>
+            <h2 className={"featureTitle"}>GitHub integration</h2>
             <p className="featureBody">Description</p>
           </div>
           <div className="greyBox">

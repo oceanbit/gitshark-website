@@ -1,0 +1,18 @@
+svg.animatedLine {
+  line {
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-dasharray: 20;
+    stroke-dashoffset: 82;
+  }
+
+  line {
+    animation: lineMove 2s infinite linear;
+  }
+
+  @keyframes lineMove {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
