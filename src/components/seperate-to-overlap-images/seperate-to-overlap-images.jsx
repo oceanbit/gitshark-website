@@ -3,8 +3,7 @@ import { useWindowSize } from "../../hooks"
 import * as styles from "./seperate-to-overlap-images.module.css"
 import * as polylinearScale from "polylinear-scale"
 
-import HistorySVG from "../../assets/history_tree.svg"
-import CommitSVG from "../../assets/commit_details.svg"
+import { ThemeContext } from "../../constants/theme-context"
 
 // The value things should stop at
 const max = 960
@@ -48,6 +47,7 @@ const maxRightImageRightLinearFn = polylinearScale(
 )
 
 export const SeperateToOverlapImages = () => {
+  const { colorMode } = React.useContext(ThemeContext)
   const { innerWidth } = useWindowSize()
 
   /**
@@ -61,21 +61,47 @@ export const SeperateToOverlapImages = () => {
   return (
     <div
       className={styles.container}
-      style={{ marginTop: -1 * leftImageTop, marginBottom: rightImageTop }}
+      style={{ marginTop: -1 * leftImageTop, marginBottom: rightImageTop - 70 }}
     >
-      <HistorySVG
-        className={`${styles.image} svgShadow`}
+      <img
+        className={styles.image}
         style={{
           top: leftImageTop,
           left: leftImageLeft,
+          opacity: colorMode === "dark" ? 1 : 0,
         }}
+        src={"/history_tree_dark.png"}
+        alt={""}
       />
-      <CommitSVG
-        className={`${styles.image} svgShadow`}
+      <img
+        className={styles.image}
+        style={{
+          top: leftImageTop,
+          left: leftImageLeft,
+          opacity: colorMode === "light" ? 1 : 0,
+        }}
+        src={"/history_tree_light.png"}
+        alt={""}
+      />
+      <img
+        className={styles.image}
         style={{
           top: rightImageTop,
           right: rightImageRight,
+          opacity: colorMode === "dark" ? 1 : 0,
         }}
+        src={"/commit_details_dark.png"}
+        alt={""}
+      />
+      <img
+        className={styles.image}
+        style={{
+          top: rightImageTop,
+          right: rightImageRight,
+          opacity: colorMode === "light" ? 1 : 0,
+        }}
+        src={"/commit_details_light.png"}
+        alt={""}
       />
     </div>
   )
