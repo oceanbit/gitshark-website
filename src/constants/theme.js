@@ -18,6 +18,8 @@ export const colors = {
   change_removal_light: '#E50039', // Red
   divider_dark: 'rgba(153, 187, 255, 0.3)', // Electric Blue 200 0.3 alpha
   divider_light: 'rgba(0, 51, 153, 0.2)', // Electric Blue 700 0.2 alpha
+  divider_no_alpha_dark: 'rgb(153, 187, 255)', // Electric Blue 200
+  divider_no_alpha_light: 'rgb(0, 51, 153)', // Electric Blue 700
   error_bubble_dark: 'rgba(217, 166, 140, 0.2)', // Light Brown 0.2 opacity
   error_bubble_light: 'rgba(153, 77, 0, 0.1)', // Brown 0.1 alpha
   error_dark: '#D9A68C', // Light Brown
@@ -70,6 +72,7 @@ export const theme = {
       colors.change_removal_dark,
     ),
     divider: new DynamicValue(colors.divider_light, colors.divider_dark),
+    divider_no_alpha: new DynamicValue(colors.divider_no_alpha_light, colors.divider_no_alpha_dark),
     error: new DynamicValue(colors.error_light, colors.error_dark),
     error_bubble: new DynamicValue(
       colors.error_bubble_light,
