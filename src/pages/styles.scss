@@ -36,12 +36,11 @@ body {
 }
 
 .bodySheet {
-  margin: 90vh auto 0;
+  margin: 90vh auto 20px;
   max-width: 960px;
-  min-height: 200vh;
   border-radius: var(--roundness);
   background: var(--floating_surface);
-  padding: 72px 32px;
+  padding: 72px 32px 32px;
   box-shadow: 0px 3px 3px rgba(19, 42, 88, 0.0196802),
     0px 7px 6px rgba(19, 42, 88, 0.03), 0px 13px 10px rgba(19, 42, 88, 0.04),
     0px 23px 18px rgba(19, 42, 88, 0.05), 0px 42px 34px rgba(19, 42, 88, 0.06);
@@ -59,6 +58,37 @@ body {
   @extend %body_02;
   color: var(--on_surface_secondary);
   text-align: center;
+}
+
+.checkboxTitle {
+  @extend %callout;
+  margin: 0 auto;
+  color: var(--on_surface);
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.checkboxContainer {
+  display: flex;
+  max-width: 423px;
+  width: 100%;
+  margin: 0 auto 16px;
+  min-height: 48px;
+  list-style: none;
+  padding: 0;
+  flex-direction: column;
+
+  @include forDesktop() {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.checkboxContainer li {
+  margin-right: 16px;
+  margin-bottom: 8px;
 }
 
 .signupInputContainer {

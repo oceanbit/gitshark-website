@@ -5,6 +5,7 @@ $sizeOfREM: 16;
   font-size: #{48/ $sizeOfREM}rem;
   line-height: #{64/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %headline_01 {
@@ -12,6 +13,7 @@ $sizeOfREM: 16;
   font-size: #{34/ $sizeOfREM}rem;
   line-height: #{48/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %headline_02 {
@@ -19,6 +21,7 @@ $sizeOfREM: 16;
   font-size: #{28/ $sizeOfREM}rem;
   line-height: #{36/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %headline_03 {
@@ -26,6 +29,7 @@ $sizeOfREM: 16;
   font-size: #{20/ $sizeOfREM}rem;
   line-height: #{28/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %callout {
@@ -33,6 +37,7 @@ $sizeOfREM: 16;
   font-size: #{16/ $sizeOfREM}rem;
   line-height: #{24/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %body_01 {
@@ -40,6 +45,7 @@ $sizeOfREM: 16;
   font-size: #{16/ $sizeOfREM}rem;
   line-height: #{24/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %body_02 {
@@ -47,6 +53,7 @@ $sizeOfREM: 16;
   font-size: #{14/ $sizeOfREM}rem;
   line-height: #{20/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %caption_01 {
@@ -54,6 +61,7 @@ $sizeOfREM: 16;
   font-size: #{12/ $sizeOfREM}rem;
   line-height: #{16/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %caption_02 {
@@ -61,6 +69,7 @@ $sizeOfREM: 16;
   font-size: #{12/ $sizeOfREM}rem;
   line-height: #{16/ $sizeOfREM}rem;
   font-family: "Rubik", sans-serif;
+  margin: 0;
 }
 
 %code {
@@ -68,4 +77,5 @@ $sizeOfREM: 16;
   font-family: "Roboto Mono", monospace;
   font-size: #{12/ $sizeOfREM}rem;
   line-height: #{20/ 16}rem;
+  margin: 0;
 }
