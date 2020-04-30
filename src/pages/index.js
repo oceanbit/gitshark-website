@@ -76,7 +76,7 @@ const IndexPage = () => (
         <SeperateToOverlapImages />
         <div className={"featureDescribeContainer featureMargin"}>
           <h2 className={"featureTitle"}>Tree & Commits</h2>
-          <p className="featureBody">Description</p>
+          <p className="featureBody">Track the progress of your repo over time. Complete with a visual representation of where your branches and remotes are at present. Further introspection for commits including individual file diffs</p>
         </div>
         <div className="greyBox githubContainer">
           <NoAccountSVG
@@ -91,7 +91,7 @@ const IndexPage = () => (
         </div>
         <div className={"featureDescribeContainer featureMargin"}>
           <h2 className={"featureTitle"}>GitHub integration</h2>
-          <p className="featureBody">Description</p>
+          <p className="featureBody">Single-button GitHub sign-in enables you to quickly sign into your favorite code platform for ease-of-use</p>
         </div>
         <div className="greyBox">
           <OneToOneRatio className={"darkSelectorOneToOne"}>
@@ -103,7 +103,7 @@ const IndexPage = () => (
         </div>
         <div className={"featureDescribeContainer featureMargin"}>
           <h2 className={"featureTitle"}>Dark mode</h2>
-          <p className="featureBody">Go ahead. Try it.</p>
+          <p className="featureBody">Go ahead. Try it. Really, press the button 😉</p>
         </div>
         <hr/>
         <MailingList className="bottomMailing"/>
