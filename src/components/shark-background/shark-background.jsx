@@ -5,14 +5,16 @@ import hexToRgba from "hex-to-rgba"
 import { colors } from "../../constants"
 import "./shark-background.css"
 import { useWindowSize } from "../../hooks"
+import { useReduceMotion } from "react-reduce-motion"
 
 const dark20 = hexToRgba(colors.primary_dark, 0.2)
 const dark0 = hexToRgba(colors.primary_dark, 0.0)
 
 export const SharkBackground = () => {
-  const {innerWidth} = useWindowSize()
+  const { innerWidth } = useWindowSize()
+  const prefersReducedMotion = useReduceMotion()
 
-  const threePoints = innerWidth > 1199;
+  const threePoints = innerWidth > 1199
 
   return (
     <div className="sharkBGContainer">
@@ -23,7 +25,7 @@ export const SharkBackground = () => {
       >
         <Wave
           fill="url(#topGradient)"
-          paused={false}
+          paused={prefersReducedMotion}
           style={{
             height: "50%",
             position: "absolute",
@@ -53,7 +55,7 @@ export const SharkBackground = () => {
         </Wave>
         <Wave
           fill="url(#midGradient)"
-          paused={false}
+          paused={prefersReducedMotion}
           style={{ height: "70%", position: "absolute", bottom: 0 }}
           options={{
             height: 100,
@@ -71,7 +73,7 @@ export const SharkBackground = () => {
         </Wave>
         <Wave
           fill="url(#lowerGradient)"
-          paused={false}
+          paused={prefersReducedMotion}
           style={{
             minHeight: "200px",
             height: "40%",
@@ -140,7 +142,7 @@ export const SharkBackground = () => {
                 enable: false,
               },
               move: {
-                enable: true,
+                enable: !prefersReducedMotion,
                 speed: 1,
                 random: true,
                 direction: "top",
@@ -152,7 +154,7 @@ export const SharkBackground = () => {
               detect_on: "window",
               events: {
                 onhover: {
-                  enable: true,
+                  enable: !prefersReducedMotion,
                   mode: "repulse",
                 },
               },
@@ -177,7 +179,3 @@ export const SharkBackground = () => {
     </div>
   )
 }
-
-
-
-

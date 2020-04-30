@@ -11107,6 +11107,11 @@ react-reconciler@^0.24.0:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
+react-reduce-motion@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-reduce-motion/-/react-reduce-motion-2.0.1.tgz#f02b6a2a94de5cfef60b05cb670bfd8c4fa239d6"
+  integrity sha512-tA0A/aFwBOIEJqSWyjGAX5ASyjWIcHUFiawHlp7ZW67HFkokOsZ1zZ7jK+7ufbH35h4RTb9O2UUUBZ3zTQ26Ug==
+
 react-refresh@^0.7.0:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.7.2.tgz#f30978d21eb8cac6e2f2fde056a7d04f6844dd50"
