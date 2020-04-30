@@ -5,7 +5,9 @@ svg.animatedLine {
     stroke-dasharray: 20;
     stroke-dashoffset: 82;
   }
+}
 
+svg.animatedLine.doAnimate {
   line {
     animation: lineMove 2s infinite linear;
   }

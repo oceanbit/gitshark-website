@@ -1,14 +1,17 @@
 import * as React from "react"
 import "./animated-line.scss"
+import { useReduceMotion } from "react-reduce-motion"
 
 // Make new export in @reach-ui/auto-id
 let id = 0;
 export const genId = () => ++id;
 
 export const AnimatedLine = ({ className = "" }) => {
+  const prefersReducedMotion = useReduceMotion()
+  const classAppend = prefersReducedMotion ? '' : 'doAnimate';
   const id = genId();
   return (
-    <svg width="100%" className={`animatedLine ${className}`}>
+    <svg width="100%" className={`animatedLine ${classAppend} ${className} `}>
       <defs>
         <linearGradient
           id={`e${id}`}
