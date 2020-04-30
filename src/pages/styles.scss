@@ -107,6 +107,12 @@ body {
   }
 }
 
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 .signupInputContainer {
   margin: 0 auto;
   max-width: 576px;
