@@ -91,7 +91,7 @@ const IndexPage = () => (
         </div>
         <div className={"featureDescribeContainer featureMargin"}>
           <h2 className={"featureTitle"}>GitHub integration</h2>
-          <p className="featureBody">Single-button GitHub sign-in enables you to quickly sign into your favorite code platform for ease-of-use</p>
+          <p className="featureBody">Single-button GitHub sign-in enables you to quickly login for rapid repository access</p>
         </div>
         <div className="greyBox">
           <OneToOneRatio className={"darkSelectorOneToOne"}>
