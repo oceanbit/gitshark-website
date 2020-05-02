@@ -46,7 +46,17 @@ export const colors = {
   ripple_surface_dark: 'rgba(230, 238, 255, 0.15)', // Navy 100 0.15 alpha
   ripple_surface_light: 'rgba(0, 51, 153, 0.12)', // Electric Blue 700 0.12 alpha
   surface_dark: '#0D1526', // Navy 1000
-  surface_light: '#FFFFFF', // White
+  surface_light: '#FFFFFF', // White,
+  svg_shadow_light: `drop-shadow(0px 3px 3px rgba(19, 42, 88, 0.0196802))
+    drop-shadow(0px 7px 6px rgba(19, 42, 88, 0.03))
+    drop-shadow(0px 13px 10px rgba(19, 42, 88, 0.04))
+    drop-shadow(0px 23px 18px rgba(19, 42, 88, 0.05))
+    drop-shadow(0px 42px 34px rgba(19, 42, 88, 0.06))`,
+  svg_shadow_dark: `drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.0196802))
+    drop-shadow(0px 7px 6px rgba(0, 0, 0, 0.03))
+    drop-shadow(0px 13px 10px rgba(0, 0, 0, 0.04))
+    drop-shadow(0px 23px 18px rgba(0, 0, 0, 0.05))
+    drop-shadow(0px 42px 34px rgba(0, 0, 0, 0.06))`
 };
 
 export const theme = {
@@ -111,6 +121,7 @@ export const theme = {
       colors.ripple_surface_dark,
     ),
     surface: new DynamicValue(colors.surface_light, colors.surface_dark),
+    svg_shadow: new DynamicValue(colors.svg_shadow_light, colors.svg_shadow_dark)
   },
 };
 
