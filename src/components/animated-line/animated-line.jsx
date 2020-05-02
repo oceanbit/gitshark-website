@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useId } from "@reach/auto-id";
-import { useReduceMotion } from "react-reduce-motion"
 import "./animated-line.scss"
+import { useReduceMotion } from "../../hooks/useReduceMotion"
 
 export const AnimatedLine = ({ className = "", isBGPaused }) => {
   const prefersReducedMotion = useReduceMotion()

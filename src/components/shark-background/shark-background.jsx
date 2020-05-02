@@ -5,8 +5,8 @@ import hexToRgba from "hex-to-rgba"
 import { colors } from "../../constants"
 import "./shark-background.css"
 import { useWindowSize } from "../../hooks"
-import { useReduceMotion } from "react-reduce-motion"
 import { useParticlesParams } from "./constants"
+import { useReduceMotion } from "../../hooks/useReduceMotion"
 
 const dark20 = hexToRgba(colors.primary_dark, 0.2)
 const dark0 = hexToRgba(colors.primary_dark, 0.0)

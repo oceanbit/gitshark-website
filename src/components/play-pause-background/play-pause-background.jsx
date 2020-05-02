@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useReduceMotion } from "react-reduce-motion"
 import './play-pause-background.scss';
+import { useReduceMotion } from "../../hooks/useReduceMotion"
 
 export const PlayPauseBackground = ({className = '', toggle, isPaused}) => {
   const prefersReducedMotion = useReduceMotion()
