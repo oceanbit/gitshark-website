@@ -13,8 +13,8 @@ import NoAccountSVG from "../assets/settings_no_account.svg"
 import GitHubLinkedSVG from "../assets/settings_github_linked.svg"
 import GitHubSVG from "../assets/github.svg"
 import { SeperateToOverlapImages } from "../components/seperate-to-overlap-images/seperate-to-overlap-images"
-import { AnimatedLine } from "../components/animated-line/animated-line"
-import { MailingList } from "../components/mailing-list/mailing-list"
+import { AnimatedLine } from "../components/animated-line"
+import { MailingList } from "../components/mailing-list"
 import { PlayPauseBackground } from "../components/play-pause-background"
 import { SixteenToNineRatio } from "../components/sixteen-to-nine-ratio"
 
@@ -99,9 +99,9 @@ const IndexPageBase = () => {
           <NoAccountSVG
             className={"gitHubImages noGHAccountImg imagePreview svgShadow"}
           />
-          <AnimatedLine className={"leftLine"}/>
+          <AnimatedLine className={"leftLine"} isBGPaused={isBGPaused}/>
           <GitHubSVG className={"githubLogo"}/>
-          <AnimatedLine className={"rightLine"}/>
+          <AnimatedLine className={"rightLine"} isBGPaused={isBGPaused}/>
           <GitHubLinkedSVG
             className={"gitHubImages ghAccountImg imagePreview svgShadow"}
           />

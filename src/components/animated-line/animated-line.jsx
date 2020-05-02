@@ -1,15 +1,13 @@
 import * as React from "react"
-import "./animated-line.scss"
+import { useId } from "@reach/auto-id";
 import { useReduceMotion } from "react-reduce-motion"
+import "./animated-line.scss"
 
-// Make new export in @reach-ui/auto-id
-let id = 0;
-export const genId = () => ++id;
-
-export const AnimatedLine = ({ className = "" }) => {
+export const AnimatedLine = ({ className = "", isBGPaused }) => {
   const prefersReducedMotion = useReduceMotion()
-  const classAppend = prefersReducedMotion ? '' : 'doAnimate';
-  const id = genId();
+
+  const classAppend = prefersReducedMotion || isBGPaused ? '' : 'doAnimate';
+  const id = useId();
   return (
     <svg width="100%" className={`animatedLine ${classAppend} ${className} `}>
       <defs>
