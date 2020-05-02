@@ -98,6 +98,11 @@ input[name="email_address"]:not(:valid) ~ .inputDescribe {
   border-radius: var(--roundness) !important;
   position: absolute !important;
   right: 0;
+
+  .MuiButton-label {
+    @extend %callout;
+    text-transform: none;
+  }
 }
 
 .bottomMailing {
