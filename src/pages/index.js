@@ -27,7 +27,7 @@ const IndexPageBase = () => {
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <SEO title="Home"/>
+      <SEO title="GitShark"/>
       <div className={"sharkBackground"}>
         <SharkBackground isBGPaused={isBGPaused}/>
       </div>

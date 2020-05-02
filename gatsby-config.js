@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `GitShark`,
-    description: `Surf through your repos, wherever you go.`,
-    author: `@crutchcorn`,
+    description: `A Git client for mobile. Surf through your repos, wherever you go.`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,6 +10,18 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `GitShark`,
+        short_name: `GitShark`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#002BFF`,
+        display: `minimal-ui`,
+        icon: `src/assets/gitshark_logo.png`
+      }
+    },
     `gatsby-plugin-sass`,
     {
       resolve: "gatsby-plugin-web-font-loader",
