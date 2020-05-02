@@ -11081,12 +11081,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-"react-particles-js@https://github.com/crutchcorn/react-particles-js.git#built":
-  version "3.2.0"
-  resolved "https://github.com/crutchcorn/react-particles-js.git#32c5604302c8eed956bc174963070584c368dfee"
+react-particles-js@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/react-particles-js/-/react-particles-js-3.2.1.tgz#a331e80519c9e70f448090915def088f72ed6ed3"
+  integrity sha512-sZ6jmwbbHQOtqsChlI7X9iee+iN4C1g9BLch2f9Ck9dvJmAaVT8/kQB1gOQLROFKIFIzQyt34gXzrI7ZNwNspQ==
   dependencies:
     lodash "^4.17.11"
-    tsparticles "^1.13.5"
+    tsparticles "^1.13.6"
 
 react-reconciler@^0.24.0:
   version "0.24.0"
@@ -13133,7 +13134,7 @@ tslib@^1.10.0, tslib@^1.11.1, tslib@^1.8.1, tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
   integrity sha512-aZW88SY8kQbU7gpV19lN24LtXh/yD4ZZg6qieAJDDg+YBsJcSmLGK9QpnUjAKVG/xefmvJGd1WUmfpT/g6AJGA==
 
-tsparticles@1.13.6, tsparticles@^1.13.5:
+tsparticles@^1.13.6:
   version "1.13.6"
   resolved "https://registry.yarnpkg.com/tsparticles/-/tsparticles-1.13.6.tgz#f461415d4f670715f8a48393fc8193fb0663afd7"
   integrity sha512-ULiKaRNy/3H91A6d56ob7uf03QnVxDS77TVpIGGfoqoyoOU4uOWIF+XtGenrHz9spQu4PO5+mgojXn91sNtDXQ==
