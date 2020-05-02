@@ -13,6 +13,14 @@ body {
   padding: 0;
 }
 
+a {
+  color: var(--primary);
+}
+
+i {
+  font-style: italic;
+}
+
 .sharkBackground {
   position: fixed;
   z-index: -1;
@@ -215,6 +223,15 @@ hr {
   @include forDesktop() {
     left: 50%;
   }
+}
+
+.gitHubImage {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-image: url("/github.png");
+  background-size: cover;
+  background-position: center center;
 }
 
 .leftLine,
