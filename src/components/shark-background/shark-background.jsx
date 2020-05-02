@@ -26,6 +26,7 @@ export const SharkBackground = ({ isBGPaused }) => {
        * Don't ask me why, but it won't pause without the `setTimeout`
        * @see https://github.com/crutchcorn/gitshark-website/commit/8abb3628128e0de4a280a66de389294242d324bb#r38868121
        */
+      current.pause()
       setTimeout(() => {
         current.pause()
       }, 0)

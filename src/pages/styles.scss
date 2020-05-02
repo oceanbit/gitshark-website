@@ -47,6 +47,13 @@ i {
   }
 }
 
+.playPauseIndexBtn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(10vh + 1rem);
+}
+
 .bodySheet {
   margin: 90vh auto 20px;
   max-width: 960px;

@@ -1,0 +1,55 @@
+@import "../../styles/font-styles";
+
+$iconHeight: 24px;
+$iconWidth: 20px;
+
+$const: #{$iconWidth * 0.616666667};
+
+.playPauseIcon {
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: $iconHeight;
+
+  border-color: transparent transparent transparent var(--primary);
+  transition: 100ms all ease;
+  cursor: pointer;
+
+  // play state
+  border-style: solid;
+  border-width: $const 0 $const $iconWidth;
+
+  &.paused {
+    border-style: double;
+    border-width: 0px 0 0px $iconWidth;
+  }
+}
+
+.playPauseBtn {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  color: var(--primary);
+  background: var(--surface);
+  border-radius: var(--roundness);
+  border: 2px solid var(--divider);
+  padding: 8px 16px 8px 18px;
+  width: fit-content;
+
+  .playPauseTxt {
+    margin-left: 14px;
+    position: relative;
+  }
+
+  .playTxt {
+    position: absolute;
+    left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  span {
+    @extend %callout;
+  }
+}

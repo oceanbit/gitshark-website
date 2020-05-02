@@ -33,9 +33,13 @@ const IndexPageBase = () => {
       </div>
       <div className={"sharkHeader"}>
         <img src="/shark_header.png" alt={"GitShark"}/>
-        <PlayPauseBackground isPaused={isBGPaused} toggle={() =>
-          setIsBGPaused(v => !v)
-        }/>
+        <PlayPauseBackground
+          className={"playPauseIndexBtn"}
+          isPaused={isBGPaused}
+          toggle={() =>
+            setIsBGPaused(v => !v)
+          }
+        />
       </div>
       <div className="bodySheet">
         <h1 className="displayHeader">
@@ -125,13 +129,16 @@ const IndexPageBase = () => {
               className={"gitHubImage"}
               href={githubLink}
               aria-label={"The GitShark GitHub page"}
-              style={colorMode === 'dark' ? { filter: "invert() hue-rotate(150deg)" } : {}}
+              style={colorMode === "dark" ? { filter: "invert() hue-rotate(150deg)" } : {}}
             />
           </SixteenToNineRatio>
         </div>
         <div className={"featureDescribeContainer featureMargin"}>
           <h2 className={"featureTitle"}>Fully open-source</h2>
-          <p className="featureBody">Programs made <i>for</i> developers should be accessible <i>to</i> developers, no? We think so, anyway. That's why we are <a href={githubLink}>100% open source</a>, ready to compile. We welcome all kinds of contributions as well! Want to see a new feature in the app? PR it and we'll get it mainlined!</p>
+          <p className="featureBody">Programs made <i>for</i> developers should be accessible <i>to</i> developers, no?
+            We think so, anyway. That's why we are <a href={githubLink}>100% open source</a>, ready to compile. We
+            welcome all kinds of contributions as well! Want to see a new feature in the app? PR it and we'll get it
+            mainlined!</p>
         </div>
         <hr/>
         <MailingList className="bottomMailing"/>
