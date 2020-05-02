@@ -55,9 +55,10 @@ i {
 }
 
 .bodySheet {
-  margin: 90vh auto 20px;
+  margin: 90vh auto 0;
   max-width: 960px;
-  border-radius: var(--roundness);
+  border-top-left-radius: var(--roundness);
+  border-top-right-radius: var(--roundness);
   background: var(--floating_surface);
   padding: 72px 32px 72px;
   box-shadow: 0px 3px 3px rgba(19, 42, 88, 0.0196802),
