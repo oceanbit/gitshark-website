@@ -1,6 +1,6 @@
 import * as React from "react"
 import { ButtonBase } from "@material-ui/core"
-import * as styles from "./dark-light-selector.module.css"
+import * as styles from "./dark-light-selector.module.scss"
 import { ThemeContext } from "../../constants/theme-context"
 
 export const DarkLightSelector = ({className = ''}) => {

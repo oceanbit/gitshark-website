@@ -1,9 +1,13 @@
 import * as React from 'react';
 import Button from "@material-ui/core/Button"
 import { Checkbox } from "../checkbox"
+import { useId } from "@reach/auto-id";
 import './mailing-list.scss';
 
+
 export const MailingList = ({className = ''}) => {
+  const idNum = useId();
+
   return (
   <form
     action="https://app.convertkit.com/forms/1340347/subscriptions"
@@ -79,11 +83,13 @@ export const MailingList = ({className = ''}) => {
     <div className="signupInputContainer">
       <input
         name="email_address"
-        placeholder={"Email address"}
+        aria-describedby={idNum}
+        placeholder={""}
         required=""
         type="email"
         className={"signupInput"}
       />
+      <span id={idNum} className={"inputDescribe"}>Email address</span>
       <Button className="signupBtn" data-element="submit" type={"submit"}>
         Sign up
       </Button>

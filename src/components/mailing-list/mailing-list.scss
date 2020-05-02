@@ -75,9 +75,18 @@ fieldset {
   background: transparent;
 }
 
-.signupInput::placeholder {
+.inputDescribe {
   @extend %body_01;
   color: var(--on_surface_secondary);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 8px;
+}
+
+input[name="email_address"]:not(:valid) ~ .inputDescribe {
+  opacity: 0;
+  z-index: -2;
 }
 
 .signupBtn {

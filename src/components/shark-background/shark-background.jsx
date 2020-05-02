@@ -23,7 +23,7 @@ export const SharkBackground = ({ isBGPaused }) => {
     const current = particlesRef.current
     if (isPaused) {
       /**
-       * Don't ask me why, but it won't pause without the `setTimeout`
+       * Don't ask me why, but it won't pause without the `setTimeout` and a second `pause`
        * @see https://github.com/crutchcorn/gitshark-website/commit/8abb3628128e0de4a280a66de389294242d324bb#r38868121
        */
       current.pause()
