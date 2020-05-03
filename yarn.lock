@@ -5900,6 +5900,14 @@ gatsby-page-utils@^0.2.0:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
+gatsby-plugin-google-analytics@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.3.0.tgz#d5258606117abd6bded2a678ba9f7661b370e72f"
+  integrity sha512-ekXMjLpkoRT6eYC8eOEOhSDLsSBPBsZ6JQydvcmDqy/cCgc+B66icPlqd4G/Lst13Ede2z2cOMuntEsEXf6CvA==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    minimatch "3.0.4"
+
 gatsby-plugin-manifest@^2.3.3:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.4.1.tgz#57381d3cc2d3b8aaa0d40bfcb7595323490f8708"
@@ -11120,11 +11128,6 @@ react-reconciler@^0.24.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.18.0"
-
-react-reduce-motion@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/react-reduce-motion/-/react-reduce-motion-2.0.1.tgz#f02b6a2a94de5cfef60b05cb670bfd8c4fa239d6"
-  integrity sha512-tA0A/aFwBOIEJqSWyjGAX5ASyjWIcHUFiawHlp7ZW67HFkokOsZ1zZ7jK+7ufbH35h4RTb9O2UUUBZ3zTQ26Ug==
 
 react-refresh@^0.7.0:
   version "0.7.2"
