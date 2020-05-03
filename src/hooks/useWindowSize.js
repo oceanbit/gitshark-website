@@ -6,7 +6,12 @@ import { useEffect, useState, useCallback, useRef } from "react";
 
 function getSize() {
 	if (!global.window || !window) {
-		return {};
+		return {
+			innerHeight: 0,
+			innerWidth: 0,
+			outerHeight: 0,
+			outerWidth: 0
+		};
 	}
 
 	return {
@@ -34,7 +39,13 @@ export const useWindowSize = (debounceMs) => {
 	}, [timeoutId, debounceMs]);
 
 	useEffect(() => {
-		if (windowSize.innerHeight === undefined) {
+		if (window) {
+			setWindowSize(getSize());
+		}
+	}, []);
+
+	useEffect(() => {
+		if (windowSize.innerHeight === 0 || windowSize.innerWidth === undefined) {
 			setWindowSize(getSize());
 		}
 
