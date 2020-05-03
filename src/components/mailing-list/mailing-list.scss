@@ -68,6 +68,8 @@ fieldset {
   @extend %body_01;
   color: var(--on_surface);
   padding: 16px 108px 16px 8px;
+  // Prevents width from exceeding the window size
+  max-width: calc(100% - 108px - 10px);
   flex-grow: 1;
   display: block;
   border: 1px solid var(--divider);
@@ -107,4 +109,11 @@ input[name="email_address"]:not(:valid) ~ .inputDescribe {
 
 .bottomMailing {
   margin-top: 56px;
+}
+
+.formkit-alert.formkit-alert-success {
+  @extend %callout;
+  text-align: center;
+  color: var(--on_surface);
+  margin-top: 16px;
 }

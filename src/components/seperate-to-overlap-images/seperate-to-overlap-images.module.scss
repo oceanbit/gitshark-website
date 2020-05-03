@@ -1,3 +1,5 @@
+@import "../../styles/utils";
+
 .container {
   position: relative;
   height: 660px;
@@ -9,4 +11,18 @@
   width: 300px;
   transition: top 300ms ease-in-out, left 300ms ease-in-out,
     right 300ms ease-in-out;
+}
+
+$mobileWidth: 490px;
+
+.leftImage {
+  @include until($mobileWidth) {
+    left: 0 !important;
+  }
+}
+
+.rightImage {
+  @include until($mobileWidth) {
+    right: 0 !important;
+  }
 }

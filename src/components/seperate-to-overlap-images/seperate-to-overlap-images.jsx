@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useWindowSize } from "../../hooks"
-import * as styles from "./seperate-to-overlap-images.module.css"
+import * as styles from "./seperate-to-overlap-images.module.scss"
 import * as polylinearScale from "polylinear-scale"
 
 import { ThemeContext } from "../../constants/theme-context"
@@ -64,7 +64,7 @@ export const SeperateToOverlapImages = () => {
       style={{ marginTop: -1 * leftImageTop, marginBottom: rightImageTop - 70 }}
     >
       <img
-        className={styles.image}
+        className={`${styles.image} ${styles.leftImage}`}
         style={{
           top: leftImageTop,
           left: leftImageLeft,
@@ -74,7 +74,7 @@ export const SeperateToOverlapImages = () => {
         alt={""}
       />
       <img
-        className={styles.image}
+        className={`${styles.image} ${styles.leftImage}`}
         style={{
           top: leftImageTop,
           left: leftImageLeft,
@@ -84,7 +84,7 @@ export const SeperateToOverlapImages = () => {
         alt={""}
       />
       <img
-        className={styles.image}
+        className={`${styles.image} ${styles.rightImage}`}
         style={{
           top: rightImageTop,
           right: rightImageRight,
@@ -94,7 +94,7 @@ export const SeperateToOverlapImages = () => {
         alt={""}
       />
       <img
-        className={styles.image}
+        className={`${styles.image} ${styles.rightImage}`}
         style={{
           top: rightImageTop,
           right: rightImageRight,
