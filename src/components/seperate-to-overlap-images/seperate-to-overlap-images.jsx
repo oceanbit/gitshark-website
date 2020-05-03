@@ -49,14 +49,21 @@ const maxRightImageRightLinearFn = polylinearScale(
 export const SeperateToOverlapImages = () => {
   const { colorMode } = React.useContext(ThemeContext)
   const { innerWidth } = useWindowSize()
-
+  
   /**
    * Do calculations for the top, left, and right props
    */
-  const leftImageTop = maxLeftImageTopLinearFn(innerWidth)
-  const leftImageLeft = maxLeftImageLeftLinearFn(innerWidth)
-  const rightImageTop = maxRightImageTopLinearFn(innerWidth)
-  const rightImageRight = maxRightImageRightLinearFn(innerWidth)
+  const [leftImageTop, setLeftImageTop] = React.useState(maxLeftImageTop)
+  const [leftImageLeft, setLeftImageLeft] = React.useState(maxLeftImageLeft)
+  const [rightImageTop, setRightImageTop] = React.useState(maxRightImageTop)
+  const [rightImageRight, setRightImageRight] = React.useState(maxRightImageRight)
+
+  React.useEffect(() => {
+    setLeftImageTop(maxLeftImageTopLinearFn(innerWidth));
+    setLeftImageLeft(maxLeftImageLeftLinearFn(innerWidth));
+    setRightImageTop(maxRightImageTopLinearFn(innerWidth));
+    setRightImageRight(maxRightImageRightLinearFn(innerWidth));
+  }, [innerWidth])
 
   return (
     <div
