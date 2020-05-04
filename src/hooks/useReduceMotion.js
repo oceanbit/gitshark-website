@@ -11,9 +11,20 @@ export function useReduceMotion() {
       setMatch(mq.matches)
     }
     handleChange()
-    mq.addEventListener("change", handleChange)
+    // https://github.com/mdn/sprints/issues/858
+    try {
+      mq.addEventListener("change", handleChange)
+    } catch (_) {
+      mq.addListener(handleChange)
+    }
     return () => {
+      try {
       mq.removeEventListener("change", handleChange)
+      } catch (_) {
+        try {
+          mq.removeListener(handleChange)
+        } catch (_) {}
+      }
     }
   }, [])
   return matches
