@@ -83,6 +83,29 @@ i {
   text-align: center;
 }
 
+.twitterButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--roundness);
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.twitterButton:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.twitterButton svg {
+  fill: var(--primary);
+  margin-left: 8px;
+}
+
+
 .dontWorry {
   @extend %caption_02;
   text-align: center;

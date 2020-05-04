@@ -9,6 +9,7 @@ import { OneToOneRatio } from "../components/one-to-one-ratio"
 import RepoSVG from "../assets/repository_list.svg"
 import BranchSVG from "../assets/branch_dropdown.svg"
 import DarkModeSVG from "../assets/settings_dark_mode.svg"
+import TwitterSVG from "../assets/twitter.svg"
 import NoAccountSVG from "../assets/settings_no_account.svg"
 import GitHubLinkedSVG from "../assets/settings_github_linked.svg"
 import GitHubSVG from "../assets/github.svg"
@@ -51,6 +52,10 @@ const IndexPageBase = () => {
           repositories, checkout branches, write and commit changes and much
           more, right from your mobile device.
         </p>
+        <a className="body2Text twitterButton" href="https://twitter.com/GitShark">
+          <p>Keep up-to-date with our development on Twitter!</p>
+          <TwitterSVG aria-hidden={true}/>
+        </a>
         <hr/>
         <p className="body2Text">
           Android and Desktop versions are coming soon!
