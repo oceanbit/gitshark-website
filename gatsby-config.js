@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `GitShark`,
+    siteUrl: `https://gitshark.dev`,
     description: `A Git client for mobile. Surf through your repos, wherever you go.`
   },
   plugins: [
