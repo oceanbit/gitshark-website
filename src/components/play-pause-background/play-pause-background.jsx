@@ -10,10 +10,10 @@ export const PlayPauseBackground = ({className = '', toggle, isPaused}) => {
   return <button onClick={toggle} className={`playPauseBtn ${className}`}>
     <span aria-hidden={true} className={`playPauseIcon ${!isPaused ? 'paused' : ''}`}/>
     <span className={"playPauseTxt"}>
-    <span aria-hidden={isPaused} className={"playTxt"} style={{opacity: isPaused ? 1 : 0}}>
+    <span aria-hidden={!isPaused} className={"playTxt"} style={{opacity: isPaused ? 1 : 0}}>
       Play motion
     </span>
-    <span aria-hidden={!isPaused}  style={{opacity: isPaused ? 0 : 1}}>
+    <span aria-hidden={isPaused}  style={{opacity: isPaused ? 0 : 1}}>
       Pause motion
     </span>
       </span>

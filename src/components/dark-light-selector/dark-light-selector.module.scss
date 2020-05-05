@@ -14,6 +14,10 @@
     color: var(--on_surface_secondary) !important;
 }
 
+.greyBtn[data-focus-visible-added] {
+    border: 2px solid var(--primary);
+}
+
 .buttonBase {
     height: 40px;
     width: 50%;

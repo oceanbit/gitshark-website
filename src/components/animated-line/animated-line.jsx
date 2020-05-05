@@ -9,7 +9,7 @@ export const AnimatedLine = ({ className = "", isBGPaused }) => {
   const classAppend = prefersReducedMotion || isBGPaused ? '' : 'doAnimate';
   const id = useId();
   return (
-    <svg width="100%" className={`animatedLine ${classAppend} ${className} `}>
+    <svg width="100%" className={`animatedLine ${classAppend} ${className}`} aria-hidden={true}>
       <defs>
         <linearGradient
           id={`e${id}`}

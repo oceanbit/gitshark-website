@@ -30,15 +30,25 @@ export const DarkLightSelector = ({className = ''}) => {
       <div>
         <ButtonBase
           className={`${styles.greyBtn} ${styles.buttonBase}`}
+          aria-hidden={colorMode === "light"}
+          aria-label={"Change the website's theme to light mode"}
           onClick={() => setColorMode("light")}
+          tabIndex={colorMode === "light" ? -1 : 0}
         >
-          Light
+          <span aria-hidden={true}>
+            Light
+          </span>
         </ButtonBase>
         <ButtonBase
           className={`${styles.greyBtn} ${styles.buttonBase}`}
+          aria-hidden={colorMode !== "light"}
+          aria-label={"Change the website's theme to dark mode"}
           onClick={() => setColorMode("dark")}
+          tabIndex={colorMode !== "light" ? -1 : 0}
         >
-          Dark
+          <span aria-hidden={true}>
+            Dark
+          </span>
         </ButtonBase>
       </div>
     </div>

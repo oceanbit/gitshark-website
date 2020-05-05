@@ -68,7 +68,7 @@ const IndexPageBase = () => {
           <div className="repositories">
             <OneToOneRatio>
               <div className="greyBox">
-                <RepoSVG className="imagePreview svgShadow"/>
+                <RepoSVG className="imagePreview svgShadow" aria-hidden={true}/>
               </div>
             </OneToOneRatio>
             <div className={"featureDescribeContainer"}>
@@ -81,7 +81,7 @@ const IndexPageBase = () => {
           <div className="branches">
             <OneToOneRatio>
               <div className="greyBox">
-                <BranchSVG className="imagePreview svgShadow"/>
+                <BranchSVG className="imagePreview svgShadow" aria-hidden={true}/>
               </div>
             </OneToOneRatio>
             <div className={"featureDescribeContainer"}>
@@ -103,12 +103,14 @@ const IndexPageBase = () => {
         <div className="greyBox githubContainer">
           <NoAccountSVG
             className={"gitHubImages noGHAccountImg imagePreview svgShadow"}
+            aria-hidden={true}
           />
           <AnimatedLine className={"leftLine"} isBGPaused={isBGPaused}/>
-          <GitHubSVG className={"githubLogo"}/>
+          <GitHubSVG className={"githubLogo"} aria-hidden={true} />
           <AnimatedLine className={"rightLine"} isBGPaused={isBGPaused}/>
           <GitHubLinkedSVG
             className={"gitHubImages ghAccountImg imagePreview svgShadow"}
+            aria-hidden={true}
           />
         </div>
         <div className={"featureDescribeContainer featureMargin"}>
@@ -121,6 +123,7 @@ const IndexPageBase = () => {
             <DarkLightSelector className={"darkSelector"}/>
             <DarkModeSVG
               className={"imagePreview svgShadow darkSelectorImage"}
+              aria-hidden={true}
             />
           </OneToOneRatio>
         </div>

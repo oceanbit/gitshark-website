@@ -12,6 +12,7 @@ import {
   theme,
   INITIAL_COLOR_MODE_CSS_PROP
 } from "./src/constants";
+import rawFocusVisible from 'raw-loader!./node_modules/focus-visible/dist/focus-visible.min.js';
 
 /**
  * DARK MODE CODE
@@ -70,7 +71,8 @@ const MagicScriptTag = () => {
 
 export const onRenderBody = ({
                                setPreBodyComponents,
-                               setPostBodyComponents
+                               setPostBodyComponents,
+                               setHeadComponents
                              }) => {
   // Set the dark mode script
   setPreBodyComponents(<MagicScriptTag />);
@@ -78,5 +80,13 @@ export const onRenderBody = ({
   // This must be set for ConvertKit to work properly
   setPostBodyComponents([
     <script src="https://f.convertkit.com/ckjs/ck.5.js" />
+  ]);
+
+  setHeadComponents([
+    React.createElement('script', {
+      dangerouslySetInnerHTML: {
+        __html: rawFocusVisible.default || rawFocusVisible
+      }
+    })
   ]);
 };
