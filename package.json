@@ -32,7 +32,7 @@
     "react-wavify": "^1.3.0"
   },
   "resolutions": {
-    "tsparticles": "^1.13.9"
+    "tsparticles": "^1.14.0-beta.2"
   },
   "devDependencies": {
     "prettier": "2.0.4"

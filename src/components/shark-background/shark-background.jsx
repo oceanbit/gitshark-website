@@ -27,13 +27,8 @@ export const SharkBackground = ({ isBGPaused }) => {
        * @see https://github.com/crutchcorn/gitshark-website/commit/8abb3628128e0de4a280a66de389294242d324bb#r38868121
        */
       current.pause()
-      setTimeout(() => {
-        current.pause()
-      }, 0)
     } else {
-      setTimeout(() => {
-        current.play()
-      }, 0)
+      current.play()
     }
   }, [isPaused, particlesRef])
 
