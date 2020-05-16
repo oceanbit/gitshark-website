@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `GitShark`,
+    title: `GitShark - A Git client for mobile`,
     siteUrl: `https://gitshark.dev`,
-    description: `A Git client for mobile. Surf through your repos, wherever you go.`
+    description: `Surf through your repos, wherever you go. From changing branches, commiting data, or just navigating Git, GitShark has you covered!`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
