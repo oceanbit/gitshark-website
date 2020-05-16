@@ -49,7 +49,7 @@ const maxRightImageRightLinearFn = polylinearScale(
 export const SeperateToOverlapImages = () => {
   const { colorMode } = React.useContext(ThemeContext)
   const { innerWidth } = useWindowSize()
-  
+
   /**
    * Do calculations for the top, left, and right props
    */
@@ -78,7 +78,8 @@ export const SeperateToOverlapImages = () => {
           opacity: colorMode === "dark" ? 1 : 0,
         }}
         src={"/history_tree_dark.png"}
-        alt={""}
+        alt={"A GitShark feature that allows you to see your commit history throughout a project"}
+        aria-hidden={colorMode !== "dark"}
       />
       <img
         className={`${styles.image} ${styles.leftImage}`}
@@ -88,7 +89,8 @@ export const SeperateToOverlapImages = () => {
           opacity: colorMode === "light" ? 1 : 0,
         }}
         src={"/history_tree_light.png"}
-        alt={""}
+        alt={"A GitShark feature that allows you to see your commit history throughout a project"}
+        aria-hidden={colorMode !== "light"}
       />
       <img
         className={`${styles.image} ${styles.rightImage}`}
@@ -98,7 +100,8 @@ export const SeperateToOverlapImages = () => {
           opacity: colorMode === "dark" ? 1 : 0,
         }}
         src={"/commit_details_dark.png"}
-        alt={""}
+        alt={"In depth commit history embedded directly in the GitShark app"}
+        aria-hidden={colorMode !== "dark"}
       />
       <img
         className={`${styles.image} ${styles.rightImage}`}
@@ -108,7 +111,8 @@ export const SeperateToOverlapImages = () => {
           opacity: colorMode === "light" ? 1 : 0,
         }}
         src={"/commit_details_light.png"}
-        alt={""}
+        alt={"In depth commit history embedded directly in the GitShark app"}
+        aria-hidden={colorMode !== "light"}
       />
     </div>
   )

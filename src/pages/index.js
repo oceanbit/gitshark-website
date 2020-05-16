@@ -48,7 +48,7 @@ const IndexPageBase = () => {
           wherever you go. 🦈
         </h1>
         <p className="body2Text">
-          GitShark is a mobile git client that allows you to manage
+          GitShark is a mobile git client (or, as I like to call them, "Git GUIs") that allows you to manage
           repositories, checkout branches, write and commit changes and much
           more, right from your mobile device.
         </p>
@@ -68,27 +68,27 @@ const IndexPageBase = () => {
           <div className="repositories">
             <OneToOneRatio>
               <div className="greyBox">
-                <RepoSVG className="imagePreview svgShadow" aria-hidden={true}/>
+                <RepoSVG className="imagePreview svgShadow" role={"img"}/>
               </div>
             </OneToOneRatio>
             <div className={"featureDescribeContainer"}>
               <h2 className={"featureTitle"}>Repositories</h2>
               <p className="featureBody">
-                Create, clone, add and manage all of your repositories
+                Create, clone, add and manage all of your repositories right from your mobile device!
               </p>
             </div>
           </div>
           <div className="branches">
             <OneToOneRatio>
               <div className="greyBox">
-                <BranchSVG className="imagePreview svgShadow" aria-hidden={true}/>
+                <BranchSVG className="imagePreview svgShadow" role={"img"}/>
               </div>
             </OneToOneRatio>
             <div className={"featureDescribeContainer"}>
               <h2 className={"featureTitle"}>Branches</h2>
               <p className="featureBody">
                 View local branches' status, check their history and add new
-                ones
+                ones. Even track remote branches, right from GitShark
               </p>
             </div>
           </div>
@@ -110,12 +110,12 @@ const IndexPageBase = () => {
           <AnimatedLine className={"rightLine"} isBGPaused={isBGPaused}/>
           <GitHubLinkedSVG
             className={"gitHubImages ghAccountImg imagePreview svgShadow"}
-            aria-hidden={true}
+            role={"img"}
           />
         </div>
         <div className={"featureDescribeContainer featureMargin"}>
-          <h2 className={"featureTitle"}>GitHub integration</h2>
-          <p className="featureBody">Single-button GitHub sign-in enables you to quickly login for rapid repository
+          <h2 className={"featureTitle"} id={"github-integration-header"}>GitHub integration</h2>
+          <p className="featureBody"  id={"github-integration-body"}>GitShark's single-button GitHub sign-in enables you to quickly login for rapid repository
             access</p>
         </div>
         <div className="greyBox">
@@ -129,7 +129,7 @@ const IndexPageBase = () => {
         </div>
         <div className={"featureDescribeContainer featureMargin"}>
           <h2 className={"featureTitle"}>Dark mode</h2>
-          <p className="featureBody">Go ahead. Try it. Really, press the button 😉</p>
+          <p className="featureBody">Go ahead. Try it. Really, press the button <span role={'img'} aria-label={"The dark mode buttons really change the website colors!"}>😉</span></p>
         </div>
         <div className="greyBox">
           <SixteenToNineRatio>
@@ -144,7 +144,7 @@ const IndexPageBase = () => {
         <div className={"featureDescribeContainer featureMargin"}>
           <h2 className={"featureTitle"}>Fully open-source</h2>
           <p className="featureBody">Programs made <i>for</i> developers should be accessible <i>to</i> developers, no?
-            We think so, anyway. That's why we are <a href={githubLink}>100% open source</a>, ready to compile. We
+            We think so, anyway. That's why GitShark is <a href={githubLink}>100% open source</a>, ready to compile. We
             welcome all kinds of contributions as well! Want to see a new feature in the app? PR it and we'll get it
             mainlined!</p>
         </div>
