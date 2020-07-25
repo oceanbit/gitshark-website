@@ -18,6 +18,7 @@ import { AnimatedLine } from "../components/animated-line"
 import { MailingList } from "../components/mailing-list"
 import { PlayPauseBackground } from "../components/play-pause-background"
 import { SixteenToNineRatio } from "../components/sixteen-to-nine-ratio"
+import { HeaderSheet } from "../components/header-sheet/header-sheet"
 
 const githubLink = "https://github.com/crutchcorn/GitShark"
 
@@ -27,22 +28,9 @@ const IndexPageBase = () => {
   const { colorMode } = React.useContext(ThemeContext)
 
   return (
-    <div style={{ minHeight: "100vh" }}>
-      <SEO/>
-      <div className={"sharkBackground"}>
-        <SharkBackground isBGPaused={isBGPaused}/>
-      </div>
-      <div className={"sharkHeader"}>
-        <img src="/shark_header.png" alt={"GitShark"}/>
-        <PlayPauseBackground
-          className={"playPauseIndexBtn"}
-          isPaused={isBGPaused}
-          toggle={() =>
-            setIsBGPaused(v => !v)
-          }
-        />
-      </div>
-      <div className="bodySheet">
+    <HeaderSheet isBGPaused={isBGPaused}
+                 setIsBGPaused={setIsBGPaused}>
+      <SEO title="GitShark"/>
         <h1 className="displayHeader">
           Surf through your repos, <br/>
           wherever you go. 🦈
@@ -150,8 +138,7 @@ const IndexPageBase = () => {
         </div>
         <hr/>
         <MailingList className="bottomMailing"/>
-      </div>
-    </div>
+    </HeaderSheet>
   )
 }
 
