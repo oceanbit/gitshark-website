@@ -28,13 +28,11 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
-    "react-particles-js": "^3.2.1",
+    "react-particles-js": "^3.3.0",
     "react-wavify": "^1.3.0"
   },
-  "resolutions": {
-    "tsparticles": "^1.14.2"
-  },
   "devDependencies": {
+    "gatsby-plugin-robots-txt": "^1.5.1",
     "prettier": "2.0.4"
   },
   "keywords": [
