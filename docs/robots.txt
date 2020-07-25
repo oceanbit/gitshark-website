@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /terms
+Disallow: /privacy
+Sitemap: https://gitshark.dev/sitemap.xml
+Host: https://gitshark.dev
