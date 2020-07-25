@@ -21,6 +21,12 @@ i {
   font-style: italic;
 }
 
+.bodyPTag {
+  @extend %body_01;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .sharkBackground {
   position: fixed;
   z-index: -1;
