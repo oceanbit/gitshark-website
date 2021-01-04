@@ -4,6 +4,10 @@ import * as styles from "./seperate-to-overlap-images.module.scss"
 import * as polylinearScale from "polylinear-scale"
 
 import { ThemeContext } from "../../constants/theme-context"
+import historyTreeDark from "../../../static/history_tree_dark.png"
+import historyTreeLight from "../../../static/history_tree_light.png"
+import commitDetailsDark from "../../../static/commit_details_dark.png"
+import commitDetailsLight from "../../../static/commit_details_light.png"
 
 // The value things should stop at
 const max = 960
@@ -56,13 +60,15 @@ export const SeperateToOverlapImages = () => {
   const [leftImageTop, setLeftImageTop] = React.useState(maxLeftImageTop)
   const [leftImageLeft, setLeftImageLeft] = React.useState(maxLeftImageLeft)
   const [rightImageTop, setRightImageTop] = React.useState(maxRightImageTop)
-  const [rightImageRight, setRightImageRight] = React.useState(maxRightImageRight)
+  const [rightImageRight, setRightImageRight] = React.useState(
+    maxRightImageRight
+  )
 
   React.useEffect(() => {
-    setLeftImageTop(maxLeftImageTopLinearFn(innerWidth));
-    setLeftImageLeft(maxLeftImageLeftLinearFn(innerWidth));
-    setRightImageTop(maxRightImageTopLinearFn(innerWidth));
-    setRightImageRight(maxRightImageRightLinearFn(innerWidth));
+    setLeftImageTop(maxLeftImageTopLinearFn(innerWidth))
+    setLeftImageLeft(maxLeftImageLeftLinearFn(innerWidth))
+    setRightImageTop(maxRightImageTopLinearFn(innerWidth))
+    setRightImageRight(maxRightImageRightLinearFn(innerWidth))
   }, [innerWidth])
 
   return (
@@ -77,8 +83,10 @@ export const SeperateToOverlapImages = () => {
           left: leftImageLeft,
           opacity: colorMode === "dark" ? 1 : 0,
         }}
-        src={"/history_tree_dark.png"}
-        alt={"A GitShark feature that allows you to see your commit history throughout a project"}
+        src={historyTreeDark}
+        alt={
+          "A GitShark feature that allows you to see your commit history throughout a project"
+        }
         aria-hidden={colorMode !== "dark"}
       />
       <img
@@ -88,8 +96,10 @@ export const SeperateToOverlapImages = () => {
           left: leftImageLeft,
           opacity: colorMode === "light" ? 1 : 0,
         }}
-        src={"/history_tree_light.png"}
-        alt={"A GitShark feature that allows you to see your commit history throughout a project"}
+        src={historyTreeLight}
+        alt={
+          "A GitShark feature that allows you to see your commit history throughout a project"
+        }
         aria-hidden={colorMode !== "light"}
       />
       <img
@@ -99,7 +109,7 @@ export const SeperateToOverlapImages = () => {
           right: rightImageRight,
           opacity: colorMode === "dark" ? 1 : 0,
         }}
-        src={"/commit_details_dark.png"}
+        src={commitDetailsDark}
         alt={"In depth commit history embedded directly in the GitShark app"}
         aria-hidden={colorMode !== "dark"}
       />
@@ -110,7 +120,7 @@ export const SeperateToOverlapImages = () => {
           right: rightImageRight,
           opacity: colorMode === "light" ? 1 : 0,
         }}
-        src={"/commit_details_light.png"}
+        src={commitDetailsLight}
         alt={"In depth commit history embedded directly in the GitShark app"}
         aria-hidden={colorMode !== "light"}
       />

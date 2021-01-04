@@ -1,4 +1,6 @@
-export const useParticlesParams = (prefersReducedMotion) => {
+import bubble from "../../../static/bubble.png"
+
+export const useParticlesParams = prefersReducedMotion => {
   return {
     particles: {
       number: {
@@ -24,7 +26,7 @@ export const useParticlesParams = (prefersReducedMotion) => {
       shape: {
         type: "image",
         image: {
-          src: "/bubble.png",
+          src: bubble,
           width: 64,
           height: 64,
         },

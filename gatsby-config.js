@@ -1,8 +1,17 @@
+const buildMode = process.env.BUILD_ENV || "production"
+const siteUrl =
+  process.env.SITE_URL ||
+  (buildMode === "production"
+    ? "https://gitshark.dev"
+    : "https://beta.gitshark.dev")
+
+console.log(`Building for ${buildMode} at ${siteUrl}`)
+
 module.exports = {
   siteMetadata: {
     title: `GitShark - A Git client for mobile`,
-    siteUrl: `https://gitshark.dev`,
-    description: `Surf through your repos, wherever you go. From changing branches, commiting data, or just navigating Git, GitShark has you covered!`
+    siteUrl,
+    description: `Surf through your repos, wherever you go. From changing branches, commiting data, or just navigating Git, GitShark has you covered!`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,8 +29,8 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#002BFF`,
         display: `minimal-ui`,
-        icon: `src/assets/gitshark_logo.png`
-      }
+        icon: `src/assets/gitshark_logo.png`,
+      },
     },
     `gatsby-plugin-sass`,
     {
@@ -36,31 +45,50 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /assets/ // See below to configure properly
-        }
-      }
+          include: /assets/, // See below to configure properly
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-165366849-1",
         head: false,
-        respectDNT: true
-      }
+        respectDNT: true,
+      },
     },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         exclude: [`/terms`, `/privacy`],
-      }
+      },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://gitshark.dev',
-        sitemap: 'https://gitshark.dev/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/', disallow: ['/terms', '/privacy'] }]
-      }
-    }
+        host: siteUrl,
+        sitemap: `${siteUrl}/sitemap.xml`,
+        resolveEnv: () => buildMode,
+        env: {
+          development: {
+            policy: [
+              {
+                userAgent: "*",
+                disallow: "/",
+              },
+            ],
+          },
+          production: {
+            policy: [
+              {
+                userAgent: "*",
+                allow: "/",
+                disallow: ["/terms", "/privacy"],
+              },
+            ],
+          },
+        },
+      },
+    },
   ],
 }
