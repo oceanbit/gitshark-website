@@ -50,6 +50,9 @@
     display: flex;
     justify-content: space-around;
     padding-top: 3rem;
+
+    @extend %body_01;
+
     @include forDesktop() {
         padding-top: 144px;
     }

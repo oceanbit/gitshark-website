@@ -30,7 +30,7 @@ const IndexPageBase = () => {
   return (
     <HeaderSheet isBGPaused={isBGPaused}
                  setIsBGPaused={setIsBGPaused}>
-      <SEO title="GitShark"/>
+      <SEO/>
         <h1 className="displayHeader">
           Surf through your repos, <br/>
           wherever you go. 🦈

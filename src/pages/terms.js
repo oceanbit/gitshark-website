@@ -1,12 +1,15 @@
 import React from "react"
 import "./styles.scss"
 import { HeaderSheet } from "../components/header-sheet"
+import SEO from "../components/seo"
 
 const Terms = () => {
   const [isBGPaused, setIsBGPaused] = React.useState(false)
 
   return (
-    <HeaderSheet isBGPaused={isBGPaused}
+    <div className={"onSurface"}>
+      <SEO title="Terms and Conditions"/>
+      <HeaderSheet isBGPaused={isBGPaused}
                  setIsBGPaused={setIsBGPaused}>
       <h1 className="displayHeader">
         Terms &amp; Conditions
@@ -129,6 +132,7 @@ const Terms = () => {
       <a href="https://app-privacy-policy-generator.firebaseapp.com/" target="_blank" rel="noopener noreferrer">App
         Privacy Policy Generator</a></p>
     </HeaderSheet>
+    </div>
   )
 }
 

@@ -27,6 +27,10 @@ i {
   margin-bottom: 1rem;
 }
 
+.onSurface {
+  color: var(--on_surface);
+}
+
 .displayHeader {
   @extend %display;
   text-align: center;

@@ -14,7 +14,7 @@ export const useParticlesParams = prefersReducedMotion => {
         value: "#000",
       },
       opacity: {
-        value: 0,
+        value: 1,
         random: true,
         anim: {
           enable: false,
