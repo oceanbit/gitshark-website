@@ -37,6 +37,13 @@ i {
   color: var(--on_surface);
   margin-bottom: 16px;
   margin-top: 0;
+
+  // Replace with headline_02
+  @include forMobile() {
+    font-size: 1.75rem;
+    line-height: 2.5rem;
+
+  }
 }
 
 .body2Text {
