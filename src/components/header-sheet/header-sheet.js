@@ -18,12 +18,16 @@ export const HeaderSheet = ({ children, isBGPaused, setIsBGPaused }) => {
           toggle={() => setIsBGPaused(v => !v)}
         />
       </div>
+      <div className={styles.bodySheetSpacer}></div>
       <div className={styles.bodySheet}>
         {children}
         <div className={styles.termSheet}>
           <a href={"/"}>Home</a>
           <a href={"/terms"}>Terms and Conditions</a>
           <a href={"/privacy"}>Privacy Policy</a>
+        </div>
+        <div className={styles.disclaimer}>
+          <p>Google Play and the Google Play logo are trademarks of Google LLC.</p>
         </div>
       </div>
     </div>

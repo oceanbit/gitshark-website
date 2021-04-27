@@ -19,6 +19,7 @@ import { MailingList } from "../components/mailing-list"
 import { PlayPauseBackground } from "../components/play-pause-background"
 import { SixteenToNineRatio } from "../components/sixteen-to-nine-ratio"
 import { HeaderSheet } from "../components/header-sheet/header-sheet"
+import { OutOnAndroid } from "../components/out-on-android/out-on-android"
 
 const githubLink = "https://github.com/crutchcorn/GitShark"
 
@@ -45,8 +46,9 @@ const IndexPageBase = () => {
           <TwitterSVG aria-hidden={true}/>
         </a>
         <hr/>
+      <OutOnAndroid/>
         <p className="body2Text">
-          Android and Desktop versions are coming soon!
+          iOS and Desktop versions are coming soon!
           <br/>
           You can sign up to receive alerts when we have something to share.
         </p>

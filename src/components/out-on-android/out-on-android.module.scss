@@ -1,0 +1,96 @@
+@import "../../styles/font-styles";
+@import "../../styles/utils";
+
+.play-logo {
+  width: 188px;
+}
+
+.betaContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 736px;
+  align-items: center;
+  margin: 32px auto;
+  @include forDesktop() {
+    flex-direction: row;
+  }
+}
+
+.image-container {
+  width: 100%;
+  max-width: 544px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  max-width: 80%;
+  width: 300px;
+  margin: 0 auto;
+  transition: top 300ms ease-in-out, left 300ms ease-in-out,
+  right 300ms ease-in-out;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.second-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.betaOutHeader {
+  /* Callout 1 */
+  font-family: Epilogue;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: var(--primary);
+  // xxs
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.androidUsers {
+  color: var(--on_surface);
+
+  /* Headline 3 */
+  font-family: Epilogue;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.androidExplain {
+  color: var(--on_surface_secondary);
+
+  /* Body 2 */
+  font-family: Epilogue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.disclaimer {
+  color: var(--on_surface);
+  margin-top: 16px;
+
+  /* Caption 1 */
+  font-family: Epilogue;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
