@@ -3,7 +3,7 @@
 
 .sharkBackground {
     position: fixed;
-    z-index: -1;
+    z-index: 1;
     top: 0;
     left: 0;
     height: 100vh;
@@ -16,7 +16,7 @@ $headerSize: 55vh;
 
 .sharkHeader {
     position: fixed;
-    z-index: -1;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
@@ -47,6 +47,7 @@ $headerSize: 55vh;
 .bodySheetSpacer {
     min-height: $minHeaderSizeMobile;
     height: $headerSize;
+    z-index: -11;
 
     @include forDesktop() {
         min-height: $minHeaderSizeDesktop;
@@ -56,6 +57,8 @@ $headerSize: 55vh;
 .bodySheet {
     margin: 0 auto;
     max-width: 960px;
+    z-index: 10;
+    position: relative;
     border-top-left-radius: var(--roundness);
     border-top-right-radius: var(--roundness);
     background: var(--floating_surface);
