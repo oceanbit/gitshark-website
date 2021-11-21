@@ -53,7 +53,7 @@ export const useWindowSize = (debounceMs) => {
 		return () => {
 			window.removeEventListener("resize", handleResize);
 		};
-	}, [handleResize, windowSize.innerHeight]);
+	}, [handleResize, windowSize.innerHeight, windowSize.innerWidth]);
 
 	return windowSize;
 };

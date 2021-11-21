@@ -37,7 +37,11 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: [`Roboto Mono:400`, `Rubik:400,500,700`],
+          families: [
+            `Roboto Mono:400`,
+            `Rubik:400,500,700`,
+            `Epilogue:400,500,600,700`
+          ],
         },
       },
     },
