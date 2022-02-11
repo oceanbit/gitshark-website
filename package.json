@@ -22,7 +22,7 @@
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-sharp": "^2.4.3",
     "hex-to-rgba": "^2.0.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "polylinear-scale": "^1.1.6",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
