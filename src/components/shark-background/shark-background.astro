@@ -33,10 +33,10 @@ import "./shark-background.css";
 			data-height="100"
 			data-amplitude="250"
 			data-speed="0.08"
-			data-points="2"
+			data-points="window.innerWidth > 1199 ? 3 : 2"
 			style={{
 				height: "70%",
-                width: "100%",
+				width: "100%",
 				position: "absolute",
 				bottom: 0,
 			}}
@@ -54,11 +54,11 @@ import "./shark-background.css";
 				data-height="100"
 				data-amplitude="200"
 				data-speed="0.12"
-				data-points="2"
+				data-points="window.innerWidth > 1199 ? 3 : 2"
 				style={{
 					minHeight: "200px",
 					height: "40%",
-                    width: "100%",
+					width: "100%",
 					position: "absolute",
 					bottom: 0,
 				}}
@@ -115,7 +115,7 @@ import "./shark-background.css";
 			const waveHeight = Number(container.dataset.height || 0) || 0;
 			const waveDelta = Number(container.dataset.amplitude || 0) || 0;
 			const waveSpeed = Number(container.dataset.speed || 0) || 0;
-			const wavePoints = Number(container.dataset.points || 0) || 0;
+			const wavePoints = container.dataset.points;
 
 			return {
 				container,
@@ -238,11 +238,12 @@ import "./shark-background.css";
 
 				var factor = totalTime * Math.PI;
 				waveMetas.forEach((waveMeta) => {
+					const wavePoints = eval(waveMeta.wavePoints || "2");
 					waveMeta.wavePath.setAttribute(
 						"d",
 						buildPath(
 							calculateWavePoints(factor, {
-								wavePoints: waveMeta.wavePoints,
+								wavePoints: wavePoints,
 								waveWidth: waveMeta.width,
 								waveSpeed: waveMeta.waveSpeed,
 								waveDelta: waveMeta.waveDelta,
