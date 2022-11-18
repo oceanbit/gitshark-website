@@ -1,0 +1,121 @@
+---
+import "./shark-background.css";
+---
+
+<div class="sharkBGContainer">
+	<div class="lighting"></div>
+	<div class="sharkBG" style={{ backgroundColor: "var(--primary)" }}>
+		<!-- Waves -->
+		<div
+			id="particles"
+			style={{ height: "100vh", width: "100vw" }}
+			class="particlesContainer"
+		>
+		</div>
+		<!-- <Particles
+        height={"100vh"}
+        width={"100vw"}
+        class="particlesContainer"
+        params={particlesParams}
+        particlesRef={particlesRef}
+      /> -->
+	</div>
+</div>
+
+<script>
+	import { tsParticles } from "tsparticles-engine";
+    import { loadBaseMover } from "tsparticles-move-base";
+	import { loadImageShape } from "tsparticles-shape-image";
+	import { loadSizeUpdater } from "tsparticles-updater-size";
+	import { loadOpacityUpdater } from "tsparticles-updater-opacity";
+	import { loadColorUpdater } from "tsparticles-updater-color";
+	import { loadExternalRepulseInteraction } from "tsparticles-interaction-external-repulse";
+	import { loadExternalBubbleInteraction } from "tsparticles-interaction-external-bubble";
+
+    await loadBaseMover(tsParticles);
+	await loadImageShape(tsParticles);
+	await loadSizeUpdater(tsParticles);
+	await loadOpacityUpdater(tsParticles);
+	await loadColorUpdater(tsParticles);
+	await loadExternalBubbleInteraction(tsParticles);
+	await loadExternalRepulseInteraction(tsParticles);
+
+	const prefersReducedMotion = false;
+
+	tsParticles.load("particles", {
+		particles: {
+			number: {
+				value: 30,
+				density: {
+					enable: true,
+					value_area: 800,
+				},
+			},
+			color: {
+				value: "#000",
+			},
+			opacity: {
+				value: 1,
+				random: true,
+				anim: {
+					enable: false,
+					speed: 1,
+					opacity_min: 0.1,
+					sync: false,
+				},
+			},
+			shape: {
+				type: "image",
+				image: {
+					src: "/bubble.png",
+					width: 64,
+					height: 64,
+				},
+			},
+			size: {
+				value: 20,
+				random: true,
+				anim: {
+					enable: false,
+					speed: 10,
+					size_min: 10,
+					sync: false,
+				},
+			},
+			line_linked: {
+				enable: false,
+			},
+			move: {
+				enable: !prefersReducedMotion,
+				speed: 1,
+				random: true,
+				direction: "top",
+				out_mode: "out",
+				bounce: false,
+			},
+		},
+		interactivity: {
+			detect_on: "window",
+			events: {
+				onhover: {
+					enable: !prefersReducedMotion,
+					mode: "repulse",
+				},
+			},
+			modes: {
+				bubble: {
+					distance: 600,
+					size: 30,
+					duration: 0.1,
+					opacity: 1,
+					speed: 300,
+				},
+				repulse: {
+					distance: 20,
+					duration: 1,
+					speed: 0.2,
+				},
+			},
+		},
+	});
+</script>
