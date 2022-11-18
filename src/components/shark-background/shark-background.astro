@@ -26,9 +26,24 @@ import "./shark-background.css";
 				version="1.1"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<path d="" fill="#000"></path>
+				<path d="" fill="url(#topGradient)"></path>
 			</svg>
 		</div>
+        <svg>
+          <defs>
+            <linearGradient
+              id="topGradient"
+              gradientTransform="rotate(-20)"
+              x1="0"
+              x2="1"
+              y1="0.2"
+              y2="0.4"
+            >
+              <stop offset="0%" stop-color="var(--wave_start)" />
+              <stop offset="70%" stop-color="var(--wave_end)" />
+            </linearGradient>
+          </defs>
+        </svg>
 		<div
 			id="particles"
 			style={{ height: "100vh", width: "100vw" }}
