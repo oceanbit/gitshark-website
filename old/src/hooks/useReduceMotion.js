@@ -2,10 +2,12 @@ import React from "react"
 
 export function useReduceMotion() {
   const [matches, setMatch] = React.useState(
-    typeof window !== `undefined` ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false
+    typeof window !== `undefined`
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false
   )
   React.useEffect(() => {
-    if (!window) return;
+    if (!window) return
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
     const handleChange = () => {
       setMatch(mq.matches)
@@ -19,7 +21,7 @@ export function useReduceMotion() {
     }
     return () => {
       try {
-      mq.removeEventListener("change", handleChange)
+        mq.removeEventListener("change", handleChange)
       } catch (_) {
         try {
           mq.removeListener(handleChange)

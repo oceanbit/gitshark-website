@@ -24,7 +24,7 @@ function SEO({ description, lang, meta, title: propTitle }) {
     `
   )
 
-  const title = propTitle || site.siteMetadata.title;
+  const title = propTitle || site.siteMetadata.title
 
   const metaDescription = description || site.siteMetadata.description
 
@@ -65,20 +65,20 @@ function SEO({ description, lang, meta, title: propTitle }) {
         },
         {
           name: `twitter:card`,
-          content: `summary_large_image`
+          content: `summary_large_image`,
         },
         {
           name: `twitter:site`,
-          content: `@GitShark`
+          content: `@GitShark`,
         },
         {
           property: "og:image",
-          content: "https://gitshark.dev/share_image.png"
+          content: "https://gitshark.dev/share_image.png",
         },
         {
           name: "twitter:image",
-          content: "https://gitshark.dev/share_image.png"
-        }
+          content: "https://gitshark.dev/share_image.png",
+        },
       ].concat(meta)}
     />
   )

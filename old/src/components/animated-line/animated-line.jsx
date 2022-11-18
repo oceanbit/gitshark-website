@@ -1,15 +1,19 @@
 import * as React from "react"
-import { useId } from "@reach/auto-id";
+import { useId } from "@reach/auto-id"
 import "./animated-line.scss"
 import { useReduceMotion } from "../../hooks/useReduceMotion"
 
 export const AnimatedLine = ({ className = "", isBGPaused }) => {
   const prefersReducedMotion = useReduceMotion()
 
-  const classAppend = prefersReducedMotion || isBGPaused ? '' : 'doAnimate';
-  const id = useId();
+  const classAppend = prefersReducedMotion || isBGPaused ? "" : "doAnimate"
+  const id = useId()
   return (
-    <svg width="100%" className={`animatedLine ${classAppend} ${className}`} aria-hidden={true}>
+    <svg
+      width="100%"
+      className={`animatedLine ${classAppend} ${className}`}
+      aria-hidden={true}
+    >
       <defs>
         <linearGradient
           id={`e${id}`}

@@ -1,5 +1,5 @@
-@import '../../styles/font-styles';
-@import '../../styles/utils';
+@import "../../styles/font-styles";
+@import "../../styles/utils";
 
 .checkboxTitle {
   @extend %callout;
@@ -53,7 +53,6 @@ fieldset {
     }
   }
 }
-
 
 .signupInputContainer {
   margin: 0 auto;

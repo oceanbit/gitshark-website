@@ -1,1 +1,1 @@
-export * from './mailing-list';
+export * from "./mailing-list"

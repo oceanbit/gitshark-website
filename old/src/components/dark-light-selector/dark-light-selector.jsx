@@ -3,7 +3,7 @@ import { ButtonBase } from "@material-ui/core"
 import * as styles from "./dark-light-selector.module.scss"
 import { ThemeContext } from "../../constants/theme-context"
 
-export const DarkLightSelector = ({className = ''}) => {
+export const DarkLightSelector = ({ className = "" }) => {
   const { colorMode, setColorMode } = React.useContext(ThemeContext)
 
   return (
@@ -35,9 +35,7 @@ export const DarkLightSelector = ({className = ''}) => {
           onClick={() => setColorMode("light")}
           tabIndex={colorMode === "light" ? -1 : 0}
         >
-          <span aria-hidden={true}>
-            Light
-          </span>
+          <span aria-hidden={true}>Light</span>
         </ButtonBase>
         <ButtonBase
           className={`${styles.greyBtn} ${styles.buttonBase}`}
@@ -46,9 +44,7 @@ export const DarkLightSelector = ({className = ''}) => {
           onClick={() => setColorMode("dark")}
           tabIndex={colorMode !== "light" ? -1 : 0}
         >
-          <span aria-hidden={true}>
-            Dark
-          </span>
+          <span aria-hidden={true}>Dark</span>
         </ButtonBase>
       </div>
     </div>

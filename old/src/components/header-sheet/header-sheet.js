@@ -27,7 +27,9 @@ export const HeaderSheet = ({ children, isBGPaused, setIsBGPaused }) => {
           <a href={"/privacy"}>Privacy Policy</a>
         </div>
         <div className={styles.disclaimer}>
-          <p>Google Play and the Google Play logo are trademarks of Google LLC.</p>
+          <p>
+            Google Play and the Google Play logo are trademarks of Google LLC.
+          </p>
         </div>
       </div>
     </div>

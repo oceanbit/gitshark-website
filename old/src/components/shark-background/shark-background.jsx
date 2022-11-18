@@ -34,7 +34,7 @@ export const SharkBackground = ({ isBGPaused }) => {
 
   return (
     <div className="sharkBGContainer">
-      <div className="lighting"/>
+      <div className="lighting" />
       <div
         className="sharkBG"
         style={{ backgroundColor: colors.primary_light }}
@@ -46,13 +46,13 @@ export const SharkBackground = ({ isBGPaused }) => {
             height: "50%",
             position: "absolute",
             top: 0,
-            transform: "rotate(180deg) scaleX(-1)"
+            transform: "rotate(180deg) scaleX(-1)",
           }}
           options={{
             height: 200,
             amplitude: 300,
             speed: 0.06,
-            points: 2
+            points: 2,
           }}
         >
           <defs>
@@ -64,8 +64,8 @@ export const SharkBackground = ({ isBGPaused }) => {
               y1="0.2"
               y2="0.4"
             >
-              <stop offset="0%" stopColor={dark20}/>
-              <stop offset="70%" stopColor={dark0}/>
+              <stop offset="0%" stopColor={dark20} />
+              <stop offset="70%" stopColor={dark0} />
             </linearGradient>
           </defs>
         </Wave>
@@ -77,13 +77,13 @@ export const SharkBackground = ({ isBGPaused }) => {
             height: 100,
             amplitude: 250,
             speed: 0.08,
-            points: threePoints ? 3 : 2
+            points: threePoints ? 3 : 2,
           }}
         >
           <defs>
             <linearGradient id="midGradient" gradientTransform="rotate(-30)">
-              <stop offset="0%" stopColor={dark0}/>
-              <stop offset="40%" stopColor={dark20}/>
+              <stop offset="0%" stopColor={dark0} />
+              <stop offset="40%" stopColor={dark20} />
             </linearGradient>
           </defs>
         </Wave>
@@ -94,19 +94,19 @@ export const SharkBackground = ({ isBGPaused }) => {
             minHeight: "200px",
             height: "40%",
             position: "absolute",
-            bottom: 0
+            bottom: 0,
           }}
           options={{
             height: 100,
             amplitude: 200,
             speed: 0.12,
-            points: threePoints ? 3 : 2
+            points: threePoints ? 3 : 2,
           }}
         >
           <defs>
             <linearGradient id="lowerGradient" gradientTransform="rotate(90)">
-              <stop offset="20%" stopColor={dark20}/>
-              <stop offset="100%" stopColor={dark0}/>
+              <stop offset="20%" stopColor={dark20} />
+              <stop offset="100%" stopColor={dark0} />
             </linearGradient>
           </defs>
         </Wave>

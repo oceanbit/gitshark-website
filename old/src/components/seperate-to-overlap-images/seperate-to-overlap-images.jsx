@@ -60,9 +60,8 @@ export const SeperateToOverlapImages = () => {
   const [leftImageTop, setLeftImageTop] = React.useState(maxLeftImageTop)
   const [leftImageLeft, setLeftImageLeft] = React.useState(maxLeftImageLeft)
   const [rightImageTop, setRightImageTop] = React.useState(maxRightImageTop)
-  const [rightImageRight, setRightImageRight] = React.useState(
-    maxRightImageRight
-  )
+  const [rightImageRight, setRightImageRight] =
+    React.useState(maxRightImageRight)
 
   React.useEffect(() => {
     setLeftImageTop(maxLeftImageTopLinearFn(innerWidth))

@@ -1,1 +1,1 @@
-export * from './shark-background';
+export * from "./shark-background"

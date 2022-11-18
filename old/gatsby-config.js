@@ -40,7 +40,7 @@ module.exports = {
           families: [
             `Roboto Mono:400`,
             `Rubik:400,500,700`,
-            `Epilogue:400,500,600,700`
+            `Epilogue:400,500,600,700`,
           ],
         },
       },
