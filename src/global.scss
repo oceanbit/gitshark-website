@@ -2,255 +2,327 @@
 @import "../styles/utils";
 
 :root {
-  --roundness: 8px;
-  --disabledOpacity: 0.4;
-  --lessRoundness: 4px;
-  font-size: 1rem;
+	--roundness: 8px;
+	--disabledOpacity: 0.4;
+	--lessRoundness: 4px;
+	font-size: 1rem;
+}
+
+:root {
+	--tinted_surface: #f7f9fd; /* Navy 50 */
+	--change_addition: #00b286; /* Green */
+	--change_mixed: #e39600; /* Gold */
+	--change_refactored: #8800cc; /* Purple */
+	--change_removal: #e50039; /* Red */
+	--divider: rgba(0, 51, 153, 0.2); /* Electric Blue 700 0.2 alpha */
+	--divider_no_alpha: rgb(0, 51, 153); /* Electric Blue 700 */
+	--error_bubble: rgba(153, 77, 0, 0.1); /* Brown 0.1 alpha */
+	--error: #994d00; /* Brown */
+	--floating_surface: #ffffff; /* White */
+	--on_change: #ffffff; /* White */
+	--on_error: #ffffff; /* White */
+	--on_primary: #ffffff; /* White */
+	--on_surface: #132a58; /* Navy 800 */
+	--on_surface_secondary: rgba(19, 42, 88, 0.6); /* Navy 800 0.6 alpha= */
+	/* Please don't use these unless you really really don't have to */
+	--on_surface_secondary_light_no_opacity: #717f9b; /* Navy 800 "0.6 alpha" */
+	--primary: #002bff; /* Electric Blue 500 */
+	--ripple_primary: rgba(
+		0,
+		43,
+		255,
+		0.2
+	); /* Electric Blue 500 0.2 alpha */
+	--ripple_surface: rgba(
+		0,
+		51,
+		153,
+		0.12
+	); /* Electric Blue 700 0.12 alpha */
+	--surface: #ffffff; /* White, */
+	--svg_shadow: `drop-shadow(0px 3px 3px rgba(19, 42, 88, 0.0196802))
+		drop-shadow(0px 7px 6px rgba(19, 42, 88, 0.03))
+		drop-shadow(0px 13px 10px rgba(19, 42, 88, 0.04))
+		drop-shadow(0px 23px 18px rgba(19, 42, 88, 0.05))
+		drop-shadow(0px 42px 34px rgba(19, 42, 88, 0.06)) `;
+}
+
+.dark {
+	--tinted_surface: #182339; /* Navy Black */
+	--divider: rgba(153, 187, 255, 0.3); /* Electric Blue 200 0.3 alpha */
+	--divider_no_alpha: rgb(153, 187, 255); /* Electric Blue 200 */
+	--floating_surface: #182339; /* Navy 900 */
+	--on_change: #000000; /* Black */
+	--on_error: #000000; /* Black */
+	--on_primary: #00081a; /* Navy Black */
+	--on_surface: #e5eeff; /* Navy 100 */
+	--on_surface_secondary: rgba(
+		229,
+		238,
+		255,
+		0.6
+	); /* Navy 100 0.6 alpha */
+	/* Please don't use these unless you really really don't have to */
+	--on_surface_secondary_dark_no_opacity: #8f97a8; /* Navy 100 "0.6 alpha" */
+	--primary: #99bbff; /* Electric Blue 200 */
+	--ripple_primary: rgba(
+		153,
+		187,
+		255,
+		0.2
+	); /* Electric Blue 200 0.2 alpha */
+	--ripple_surface: rgba(230, 238, 255, 0.15); /* Navy 100 0.15 alpha */
+	--surface: #0d1526; /* Navy 1000 */
+	--svg_shadow: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.0196802))
+		drop-shadow(0px 7px 6px rgba(0, 0, 0, 0.03))
+		drop-shadow(0px 13px 10px rgba(0, 0, 0, 0.04))
+		drop-shadow(0px 23px 18px rgba(0, 0, 0, 0.05))
+		drop-shadow(0px 42px 34px rgba(0, 0, 0, 0.06));
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Rubik", sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: "Rubik", sans-serif;
 }
 
 a {
-  color: var(--primary);
+	color: var(--primary);
 }
 
 i {
-  font-style: italic;
+	font-style: italic;
 }
 
 .bodyPTag {
-  @extend %body_01;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+	@extend %body_01;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .onSurface {
-  color: var(--on_surface);
+	color: var(--on_surface);
 }
 
 .displayHeader {
-  @extend %display;
-  text-align: center;
-  color: var(--on_surface);
-  margin-bottom: 16px;
-  margin-top: 0;
+	@extend %display;
+	text-align: center;
+	color: var(--on_surface);
+	margin-bottom: 16px;
+	margin-top: 0;
 
-  // Replace with headline_02
-  @include forMobile() {
-    font-size: 1.75rem;
-    line-height: 2.5rem;
-  }
+	// Replace with headline_02
+	@include forMobile() {
+		font-size: 1.75rem;
+		line-height: 2.5rem;
+	}
 }
 
 .body2Text {
-  @extend %body_02;
-  color: var(--on_surface_secondary);
-  text-align: center;
+	@extend %body_02;
+	color: var(--on_surface_secondary);
+	text-align: center;
 }
 
 .twitterButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  border-radius: var(--roundness);
-  text-decoration: none;
-  color: var(--primary);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	border-radius: var(--roundness);
+	text-decoration: none;
+	color: var(--primary);
 }
 
 .twitterButton:hover {
-  background: rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.1);
 }
 
 .twitterButton svg {
-  fill: var(--primary);
-  margin-left: 8px;
+	fill: var(--primary);
+	margin-left: 8px;
 }
 
 .dontWorry {
-  @extend %caption_02;
-  text-align: center;
-  color: var(--on_surface_secondary);
-  margin-top: 16px;
+	@extend %caption_02;
+	text-align: center;
+	color: var(--on_surface_secondary);
+	margin-top: 16px;
 }
 
 hr {
-  margin: 32px 0;
-  border: 0;
-  border-top: 1px solid var(--divider);
+	margin: 32px 0;
+	border: 0;
+	border-top: 1px solid var(--divider);
 }
 
 .greyBox {
-  height: 100%;
-  width: 100%;
-  border: 1px solid var(--divider);
-  background: var(--tinted_surface);
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
+	height: 100%;
+	width: 100%;
+	border: 1px solid var(--divider);
+	background: var(--tinted_surface);
+	border-radius: 16px;
+	overflow: hidden;
+	position: relative;
 }
 
 .imagePreview {
-  max-width: 80%;
-  margin: 50px auto 0;
-  display: block;
+	max-width: 80%;
+	margin: 50px auto 0;
+	display: block;
 }
 
 .svgShadow {
-  filter: var(--svg_shadow);
+	filter: var(--svg_shadow);
 }
 
 .screenshotRow {
-  display: flex;
-  flex-direction: column;
-  margin-top: 32px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 32px;
 
-  @include forDesktop() {
-    flex-direction: row;
-  }
+	@include forDesktop() {
+		flex-direction: row;
+	}
 }
 
 .repositories,
 .branches {
-  flex-grow: 1;
-  margin-bottom: 32px;
+	flex-grow: 1;
+	margin-bottom: 32px;
 
-  @include forDesktop() {
-    width: 1px;
-  }
+	@include forDesktop() {
+		width: 1px;
+	}
 }
 
 @include forDesktop() {
-  .repositories {
-    margin-right: 16px;
-  }
-  .branches {
-    margin-left: 16px;
-  }
+	.repositories {
+		margin-right: 16px;
+	}
+	.branches {
+		margin-left: 16px;
+	}
 }
 
 .featureTitle {
-  @extend %headline_02;
-  margin: 0;
-  text-align: center;
-  color: var(--on_surface);
+	@extend %headline_02;
+	margin: 0;
+	text-align: center;
+	color: var(--on_surface);
 }
 
 .featureBody {
-  @extend %body_01;
-  text-align: center;
-  margin: 0;
-  color: var(--on_surface);
+	@extend %body_01;
+	text-align: center;
+	margin: 0;
+	color: var(--on_surface);
 }
 
 .featureDescribeContainer {
-  padding: 24px;
+	padding: 24px;
 }
 
 .featureMargin {
-  margin-bottom: 32px;
+	margin-bottom: 32px;
 }
 
 .darkSelectorOneToOne {
-  margin: 0 auto;
-  width: 100%;
-  padding-top: 100%;
-  @include forDesktop() {
-    width: 50% !important;
-    padding-top: 50% !important;
-  }
+	margin: 0 auto;
+	width: 100%;
+	padding-top: 100%;
+	@include forDesktop() {
+		width: 50% !important;
+		padding-top: 50% !important;
+	}
 }
 
 .darkSelector {
-  z-index: 1;
-  position: absolute !important;
-  width: calc(60%);
-  top: 62%;
-  left: calc(50% - 4px);
-  transform: translateX(-50%);
+	z-index: 1;
+	position: absolute !important;
+	width: calc(60%);
+	top: 62%;
+	left: calc(50% - 4px);
+	transform: translateX(-50%);
 }
 
 .darkSelectorImage {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 .githubContainer {
-  height: 300px;
+	height: 300px;
 }
 
 .gitHubImages {
-  width: 30%;
-  position: absolute;
+	width: 30%;
+	position: absolute;
 }
 
 .noGHAccountImg {
-  transition: left 1000ms ease-in-out;
-  left: -100%;
-  @include forDesktop() {
-    left: 32px;
-  }
+	transition: left 1000ms ease-in-out;
+	left: -100%;
+	@include forDesktop() {
+		left: 32px;
+	}
 }
 
 .ghAccountImg {
-  transition: width 1000ms ease-in-out;
-  right: 32px;
-  width: 50%;
-  @include forDesktop() {
-    width: 30%;
-  }
+	transition: width 1000ms ease-in-out;
+	right: 32px;
+	width: 50%;
+	@include forDesktop() {
+		width: 30%;
+	}
 }
 
 .githubLogo {
-  position: absolute;
-  left: 60px;
-  height: 70px;
-  transform: translateX(-50%) translateY(-50%);
-  top: 50%;
-  transition: left 600ms ease-in-out;
+	position: absolute;
+	left: 60px;
+	height: 70px;
+	transform: translateX(-50%) translateY(-50%);
+	top: 50%;
+	transition: left 600ms ease-in-out;
 
-  @include forDesktop() {
-    left: 50%;
-  }
+	@include forDesktop() {
+		left: 50%;
+	}
 }
 
 .gitHubImage {
-  display: block;
-  height: 100%;
-  width: 100%;
-  background-image: url("../../static/github.png");
-  background-size: cover;
-  background-position: center center;
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-image: url("../../static/github.png");
+	background-size: cover;
+	background-position: center center;
 }
 
 .leftLine,
 .rightLine {
-  position: absolute;
-  top: calc(50% - 7px);
+	position: absolute;
+	top: calc(50% - 7px);
 }
 
 .leftLine {
-  transition: opacity 300ms ease-in-out;
-  left: calc(32px + 30%);
-  opacity: 0;
-  width: calc((100% / 2) - 30% - 70px);
-  @include forDesktop() {
-    opacity: 1;
-  }
+	transition: opacity 300ms ease-in-out;
+	left: calc(32px + 30%);
+	opacity: 0;
+	width: calc((100% / 2) - 30% - 70px);
+	@include forDesktop() {
+		opacity: 1;
+	}
 }
 
 .rightLine {
-  transition: right 800ms ease-in-out, width 600ms ease-in-out;
-  width: calc(50% - 60px - 70px);
-  right: calc(50% + 32px);
-  @include forDesktop() {
-    right: calc(32px + 30%);
-    width: calc((100% / 2) - 30% - 70px);
-  }
+	transition: right 800ms ease-in-out, width 600ms ease-in-out;
+	width: calc(50% - 60px - 70px);
+	right: calc(50% + 32px);
+	@include forDesktop() {
+		right: calc(32px + 30%);
+		width: calc((100% / 2) - 30% - 70px);
+	}
 }
