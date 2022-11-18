@@ -18,6 +18,7 @@ import "./shark-background.css";
 				top: 0,
 				transform: "rotate(180deg) scaleX(-1)",
 			}}
+			id="wave1"
 		>
 			<svg
 				width="100%"
@@ -25,7 +26,7 @@ import "./shark-background.css";
 				version="1.1"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<path id="wave1" d="" fill="#000"></path>
+				<path d="" fill="#000"></path>
 			</svg>
 		</div>
 		<div
@@ -45,24 +46,51 @@ import "./shark-background.css";
 </div>
 
 <script>
-	var wave = document.getElementById("wave1");
-	var width = wave!.parentElement!.parentElement!.getBoundingClientRect().width;
-	var height =
-		wave!.parentElement!.parentElement!.getBoundingClientRect().height;
+	// Modified and adapted from https://codepen.io/grimor/pen/qbXLdN
+	const waveContainerIds = ["wave1"];
 
-	var waveWidth =
-		wave!.parentElement!.parentElement!.getBoundingClientRect().width; // Wave SVG width (usually container width)
-	var waveHeight = 400; // Position from the top of container
-	var waveDelta = 20; // Wave amplitude
-	var speed = 1.1; // Wave animation speed
-	var wavePoints = 6; // How many point will be used to compute our wave
+	const waveMetas = waveContainerIds.map((waveContainerId) => {
+		const container = document.getElementById(waveContainerId)!;
+		const { height, width } = container.getBoundingClientRect();
+		const wavePath = container.querySelector("path")!;
+		const waveHeight = Number(container.dataset.height || 0) || 0;
+		const waveDelta = Number(container.dataset.amplitude || 0) || 0;
+		const waveSpeed = Number(container.dataset.speed || 0) || 0;
+		const wavePoints = Number(container.dataset.points || 0) || 0;
 
-	function calculateWavePoints(factor: number) {
+		return {
+			container,
+			height,
+			width,
+			wavePath,
+			waveHeight,
+			waveDelta,
+			waveSpeed,
+			wavePoints,
+		};
+	});
+
+	function calculateWavePoints(
+		factor: number,
+		{
+			wavePoints,
+			waveWidth,
+			waveSpeed,
+			waveDelta,
+			waveHeight,
+		}: {
+			wavePoints: number;
+			waveWidth: number;
+			waveSpeed: number;
+			waveDelta: number;
+			waveHeight: number;
+		}
+	) {
 		var points: Array<{ x: number; y: number }> = [];
 
 		for (var i = 0; i <= wavePoints; i++) {
 			var x = (i / wavePoints) * waveWidth;
-			var sinSeed = (factor + (i + (i % wavePoints))) * speed * 100;
+			var sinSeed = (factor + (i + (i % wavePoints))) * waveSpeed * 100;
 			var sinHeight = Math.sin(sinSeed / 100) * waveDelta;
 			var yPos = Math.sin(sinSeed / 100) * sinHeight + waveHeight;
 			points.push({ x: x, y: yPos });
@@ -71,7 +99,16 @@ import "./shark-background.css";
 		return points;
 	}
 
-	function buildPath(points: Array<{ x: number; y: number }>) {
+	function buildPath(
+		points: Array<{ x: number; y: number }>,
+		{
+			width,
+			height,
+		}: {
+			width: number;
+			height: number;
+		}
+	) {
 		var SVGString = "M " + points[0]!.x + " " + points[0]!.y;
 
 		var cp0 = {
@@ -141,7 +178,21 @@ import "./shark-background.css";
 			totalTime += elapsed;
 
 			var factor = totalTime * Math.PI;
-			wave!.setAttribute("d", buildPath(calculateWavePoints(factor)));
+			waveMetas.forEach((waveMeta) => {
+				waveMeta.wavePath.setAttribute(
+					"d",
+					buildPath(
+						calculateWavePoints(factor, {
+							wavePoints: waveMeta.wavePoints,
+							waveWidth: waveMeta.width,
+							waveSpeed: waveMeta.waveSpeed,
+							waveDelta: waveMeta.waveDelta,
+							waveHeight: waveMeta.waveHeight,
+						}),
+						{ height: waveMeta.height, width: waveMeta.width }
+					)
+				);
+			});
 		} else {
 			lastUpdate = now;
 		}
