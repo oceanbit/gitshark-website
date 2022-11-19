@@ -1,6 +1,7 @@
 ---
 import HeaderSheet from "../components/header-sheet/header-sheet.astro";
 import OneToOneRatio from "../components/one-to-one-ratio/one-to-one-ratio.astro";
+import SixteenToNineRatio from "../components/sixteen-to-nine-ratio/sixteen-to-nine-ratio.astro";
 import BranchDropdown from "../components/svgs/branch_dropdown.astro";
 import RepositoryList from "../components/svgs/repository_list.astro";
 import Twitter from "../components/svgs/twitter.astro";
@@ -117,18 +118,12 @@ const githubLink = "https://github.com/crutchcorn/GitShark";
 			</p>
 		</div>
 		<div class="greyBox">
-			<!-- <SixteenToNineRatio>
-			<a
-			  class={"gitHubImage"}
-			  href={githubLink}
-			  aria-label={"The GitShark GitHub page"}
-			  style={
-				colorMode === "dark"
-				  ? { filter: "invert() hue-rotate(150deg)" }
-				  : {}
-			  }
-			/>
-		  </SixteenToNineRatio> -->
+			<SixteenToNineRatio>
+				<a
+					class={"gitHubImage"}
+					href={githubLink}
+					aria-label={"The GitShark GitHub page"}></a>
+			</SixteenToNineRatio>
 		</div>
 		<div class={"featureDescribeContainer featureMargin"}>
 			<h2 class={"featureTitle"}>Fully open-source</h2>

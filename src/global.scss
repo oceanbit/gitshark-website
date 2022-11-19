@@ -303,6 +303,10 @@ hr {
 	background-position: center center;
 }
 
+.dark .gitHubImage {
+	filter: #{"invert()"} hue-rotate(150deg);
+}
+
 .leftLine,
 .rightLine {
 	position: absolute;
