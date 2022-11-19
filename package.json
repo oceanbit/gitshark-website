@@ -4,10 +4,12 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "astro dev",
+		"dev": "env-cmd -f ./src/environments/dev.env astro dev",
 		"build": "astro build",
+		"build-beta": "env-cmd -f ./src/environments/beta.env astro build",
 		"format": "prettier -w . --cache --plugin-search-dir=.",
-		"lint": "eslint . --ext .js,.ts,.astro"
+		"lint": "eslint . --ext .js,.ts,.astro",
+		"host:local": "cd dist && ws --http2 --compress"
 	},
 	"dependencies": {
 		"astro": "^1.6.10",
@@ -23,11 +25,13 @@
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.42.1",
 		"@typescript-eslint/parser": "^5.42.1",
+		"env-cmd": "^10.1.0",
 		"eslint": "^8.27.0",
 		"eslint-plugin-astro": "^0.21.0",
 		"eslint-plugin-jsx-a11y": "^6.6.1",
 		"husky": "^8.0.2",
 		"lint-staged": "^13.0.3",
+		"local-web-server": "^5.2.1",
 		"prettier": "^2.7.1",
 		"prettier-plugin-astro": "^0.7.0",
 		"sass": "^1.56.1"
