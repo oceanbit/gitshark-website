@@ -12,6 +12,7 @@
 		"host:local": "cd dist && ws --http2 --compress"
 	},
 	"dependencies": {
+		"@astrojs/image": "^0.11.6",
 		"astro": "^1.6.10",
 		"tsparticles-engine": "^2.5.2",
 		"tsparticles-interaction-external-bubble": "^2.5.3",

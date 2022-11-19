@@ -1,8 +1,8 @@
 ---
 import styles from "./header-sheet.module.scss";
-import sharkHeader from "../../../public/shark_header.png";
 import SharkBackground from "../shark-background/shark-background.astro";
 import PlayPauseBackground from "../play-pause-background/play-pause-background.astro";
+import { Picture } from "@astrojs/image/components";
 ---
 
 <div style={{ minHeight: "100vh" }}>
@@ -10,7 +10,14 @@ import PlayPauseBackground from "../play-pause-background/play-pause-background.
 		<SharkBackground />
 	</div>
 	<div class={styles.sharkHeader}>
-		<img src={sharkHeader} alt={"GitShark"} />
+		<Picture
+			sizes="580px"
+			widths={[580]}
+			loading={"eager"}
+			src={import("../../../public/shark_header.png")}
+			formats={["webp", "png"]}
+			alt={"GitShark"}
+		/>
 		<PlayPauseBackground class={styles.playPauseIndexBtn} />
 	</div>
 	<div class={styles.bodySheetSpacer}></div>
