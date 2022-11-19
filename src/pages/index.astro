@@ -4,8 +4,12 @@ import OneToOneRatio from "../components/one-to-one-ratio/one-to-one-ratio.astro
 import SixteenToNineRatio from "../components/sixteen-to-nine-ratio/sixteen-to-nine-ratio.astro";
 import BranchDropdown from "../components/svgs/branch_dropdown.astro";
 import RepositoryList from "../components/svgs/repository_list.astro";
+import SettingsDarkMode from "../components/svgs/settings_dark_mode.astro";
+import SettingsNoAccount from "../components/svgs/settings_no_account.astro";
+import GitHub from "../components/svgs/github.astro";
 import Twitter from "../components/svgs/twitter.astro";
 import Layout from "../layouts/Layout.astro";
+import SettingsGitHubLinked from "../components/svgs/settings_github_linked.astro";
 
 const githubLink = "https://github.com/crutchcorn/GitShark";
 ---
@@ -75,17 +79,17 @@ const githubLink = "https://github.com/crutchcorn/GitShark";
 			</p>
 		</div>
 		<div class="greyBox githubContainer">
-			<!-- <NoAccountSVG
-			class={"gitHubImages noGHAccountImg imagePreview svgShadow"}
-			aria-hidden={true}
-		  />
-		  <AnimatedLine class={"leftLine"} isBGPaused={isBGPaused} />
-		  <GitHubSVG class={"githubLogo"} aria-hidden={true} />
-		  <AnimatedLine class={"rightLine"} isBGPaused={isBGPaused} />
-		  <GitHubLinkedSVG
-			class={"gitHubImages ghAccountImg imagePreview svgShadow"}
-			role={"img"}
-		  /> -->
+			<SettingsNoAccount
+				class={"gitHubImages noGHAccountImg imagePreview svgShadow"}
+				aria-hidden={true}
+			/>
+			<!-- <AnimatedLine class={"leftLine"} isBGPaused={isBGPaused} /> -->
+			<GitHub class={"githubLogo"} aria-hidden={true} />
+			<!-- <AnimatedLine class={"rightLine"} isBGPaused={isBGPaused} /> -->
+			<SettingsGitHubLinked
+				class={"gitHubImages ghAccountImg imagePreview svgShadow"}
+				role={"img"}
+			/>
 		</div>
 		<div class={"featureDescribeContainer featureMargin"}>
 			<h2 class={"featureTitle"} id={"github-integration-header"}>
@@ -97,13 +101,13 @@ const githubLink = "https://github.com/crutchcorn/GitShark";
 			</p>
 		</div>
 		<div class="greyBox">
-			<!-- <OneToOneRatio class={"darkSelectorOneToOne"}>
-			<DarkLightSelector class={"darkSelector"} />
-			<DarkModeSVG
-			  class={"imagePreview svgShadow darkSelectorImage"}
-			  aria-hidden={true}
-			/>
-		  </OneToOneRatio> -->
+			<OneToOneRatio class={"darkSelectorOneToOne"}>
+				<!-- <DarkLightSelector class={"darkSelector"} /> -->
+				<SettingsDarkMode
+					class={"imagePreview svgShadow darkSelectorImage"}
+					aria-hidden={true}
+				/>
+			</OneToOneRatio>
 		</div>
 		<div class={"featureDescribeContainer featureMargin"}>
 			<h2 class={"featureTitle"}>Dark mode</h2>
