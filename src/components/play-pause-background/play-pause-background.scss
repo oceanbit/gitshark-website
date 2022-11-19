@@ -23,7 +23,7 @@ $const: #{$iconWidth * 0.616666667};
 
 @media (prefers-reduced-motion) {
 	.playPauseBtn {
-		display: none;
+		display: none !important;
 	}
 }
 
@@ -69,7 +69,6 @@ $const: #{$iconWidth * 0.616666667};
 	}
 
 	&:not(.paused) {
-		
 		.playPauseIcon {
 			border-style: double;
 			border-width: 0px 0 0px $iconWidth;
