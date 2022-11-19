@@ -220,11 +220,11 @@ import "./shark-background.css";
 		var enable = !mediaQuery || !mediaQuery.matches;
 		var hasFrameDrawn = false;
 
-		(window as any).pauseWaves = () => {
+		window.pauseWaves = () => {
 			enable = false;
 		};
 
-		(window as any).playWaves = () => {
+		window.playWaves = () => {
 			enable = true;
 		};
 
@@ -371,25 +371,23 @@ import "./shark-background.css";
 			});
 		}
 
-		(window as any).pauseParticles = () => {
+		window.pauseParticles = () => {
 			particlesContainer!.pause();
 		};
 
-		(window as any).playParticles = () => {
+		window.playParticles = () => {
 			particlesContainer!.play();
 		};
 	</script>
 	<script>
-		const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+		window.playBackground = () => {
+			window.playParticles?.();
+			window.playWaves?.();
+		}
 
-		mediaQuery.addEventListener("change", () => {
-			if (!mediaQuery || !mediaQuery.matches) {
-				(window as any).playParticles();
-                (window as any).playWaves();
-			} else {
-				(window as any).pauseParticles();
-                (window as any).pauseWaves();
-            }
-		});
+		window.pauseBackground = () => {
+			window.pauseParticles?.();
+			window.pauseWaves?.();
+		}
 	</script>
 </div>

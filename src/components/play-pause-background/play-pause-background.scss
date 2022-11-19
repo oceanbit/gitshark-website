@@ -1,0 +1,86 @@
+@import "../../styles/font-styles";
+
+$iconHeight: 24px;
+$iconWidth: 20px;
+
+$const: #{$iconWidth * 0.616666667};
+
+.playPauseIcon {
+	border: 0;
+	background: transparent;
+	box-sizing: border-box;
+	width: 0;
+	height: $iconHeight;
+
+	border-color: transparent transparent transparent var(--primary);
+	transition: 100ms all ease;
+	cursor: pointer;
+
+	// play state
+	border-style: solid;
+	border-width: $const 0 $const $iconWidth;
+}
+
+@media (prefers-reduced-motion) {
+	.playPauseBtn {
+		display: none;
+	}
+}
+
+.playPauseBtn {
+	align-items: center;
+	display: flex;
+	flex-wrap: nowrap;
+	color: var(--primary);
+	background: var(--surface);
+	border-radius: var(--roundness);
+	border: 2px solid var(--divider);
+	padding: 8px 16px 8px 18px;
+	width: fit-content;
+	cursor: pointer;
+	box-shadow: 0px 2px 2px rgba(0, 51, 153, 0.179082),
+		0px 5px 5px rgba(0, 51, 153, 0.201718), 0px 9px 10px rgba(0, 51, 153, 0.2),
+		0px 16px 18px rgba(0, 51, 153, 0.212394),
+		0px 28px 32px rgba(0, 51, 153, 0.32), 0px 62px 80px rgba(0, 51, 153, 0.4);
+
+	.playPauseTxt {
+		margin-left: 14px;
+		position: relative;
+	}
+
+	.playTxt {
+		position: absolute;
+		left: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	span {
+		@extend %callout;
+	}
+
+	&.paused {
+		.playTxt {
+			opacity: 1;
+		}
+		.pausedTxt {
+			opacity: 0;
+		}
+	}
+
+	&:not(.paused) {
+		
+		.playPauseIcon {
+			border-style: double;
+			border-width: 0px 0 0px $iconWidth;
+		}
+
+		.playTxt {
+			opacity: 0;
+		}
+
+		.pausedTxt {
+			opacity: 1;
+		}
+	}
+}

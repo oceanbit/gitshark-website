@@ -1,10 +1,8 @@
 ---
-// import { SharkBackground } from "../shark-background"
-// import { PlayPauseBackground } from "../play-pause-background"
 import styles from "./header-sheet.module.scss";
-// import React from "react"
 import sharkHeader from "../../../public/shark_header.png";
 import SharkBackground from "../shark-background/shark-background.astro";
+import PlayPauseBackground from "../play-pause-background/play-pause-background.astro";
 ---
 
 <div style={{ minHeight: "100vh" }}>
@@ -13,11 +11,7 @@ import SharkBackground from "../shark-background/shark-background.astro";
 	</div>
 	<div class={styles.sharkHeader}>
 		<img src={sharkHeader} alt={"GitShark"} />
-		<!-- <PlayPauseBackground
-          class={styles.playPauseIndexBtn}
-          isPaused={isBGPaused}
-          toggle={() => setIsBGPaused(v => !v)}
-		/> -->
+		<PlayPauseBackground class={styles.playPauseIndexBtn} />
 	</div>
 	<div class={styles.bodySheetSpacer}></div>
 	<div class={styles.bodySheet}>
