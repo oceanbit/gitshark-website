@@ -218,13 +218,15 @@ import "./shark-background.css";
 		const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 		var enable = !mediaQuery || !mediaQuery.matches;
-        var hasFrameDrawn = false;
+		var hasFrameDrawn = false;
 
-		mediaQuery.addEventListener("change", () => {
-			if (!mediaQuery || !mediaQuery.matches) {
-				enable = false;
-			}
-		});
+		(window as any).pauseWaves = () => {
+			enable = false;
+		};
+
+		(window as any).playWaves = () => {
+			enable = true;
+		};
 
 		function tick() {
 			var now = window.Date.now();
@@ -252,7 +254,7 @@ import "./shark-background.css";
 						)
 					);
 				});
-                hasFrameDrawn = true;
+				hasFrameDrawn = true;
 			} else {
 				lastUpdate = now;
 			}
@@ -357,11 +359,37 @@ import "./shark-background.css";
 			},
 		});
 
-		requestAnimationFrame((timestamp) => {
-			particlesContainer!.frameManager.nextFrame(timestamp);
-			requestAnimationFrame(() => {
-				particlesContainer!.pause();
+		const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+		const enable = !mediaQuery || !mediaQuery.matches;
+
+		if (!enable) {
+			requestAnimationFrame((timestamp) => {
+				particlesContainer!.frameManager.nextFrame(timestamp);
+				requestAnimationFrame(() => {
+					particlesContainer!.pause();
+				});
 			});
+		}
+
+		(window as any).pauseParticles = () => {
+			particlesContainer!.pause();
+		};
+
+		(window as any).playParticles = () => {
+			particlesContainer!.play();
+		};
+	</script>
+	<script>
+		const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+		mediaQuery.addEventListener("change", () => {
+			if (!mediaQuery || !mediaQuery.matches) {
+				(window as any).playParticles();
+                (window as any).playWaves();
+			} else {
+				(window as any).pauseParticles();
+                (window as any).pauseWaves();
+            }
 		});
 	</script>
 </div>
