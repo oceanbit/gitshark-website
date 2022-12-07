@@ -1,9 +1,11 @@
 ---
 import HeaderSheet from "../components/header-sheet/header-sheet.astro";
 import Layout from "../layouts/Layout.astro";
+import SEO from "../components/seo/seo.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
+	<SEO slot="head" title="Privacy Policy" description="The privacy policy for GitShark, a mobile Git GUI"/>
 	<HeaderSheet>
 		<h1 class="displayHeader">Privacy Policy</h1>
 		<p class="bodyPTag">

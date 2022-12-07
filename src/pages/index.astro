@@ -9,12 +9,14 @@ import SettingsNoAccount from "../components/svgs/settings_no_account.astro";
 import GitHub from "../components/svgs/github.astro";
 import Twitter from "../components/svgs/twitter.astro";
 import Layout from "../layouts/Layout.astro";
+import SEO from "../components/seo/seo.astro";
 import SettingsGitHubLinked from "../components/svgs/settings_github_linked.astro";
 
 const githubLink = "https://github.com/crutchcorn/GitShark";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
+	<SEO slot="head" title="GitShark - A Git client for mobile" description={`Surf through your repos, wherever you go. From changing branches, commiting data, or just navigating Git, GitShark has you covered!`}/>
 	<HeaderSheet>
 		<!-- <SEO /> -->
 		<h1 class="displayHeader">
