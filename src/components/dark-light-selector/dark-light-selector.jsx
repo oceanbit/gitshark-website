@@ -2,12 +2,18 @@ import * as React from 'preact';
 import { useLayoutEffect, useState } from 'preact/hooks';
 import ButtonBase from "@mui/material/ButtonBase"
 import * as styles from "./dark-light-selector.module.scss"
+import {COLOR_MODE_STORAGE_KEY} from '../../constants/theme';
 
 export const DarkLightSelector = ({ className = "" }) => {
-  const [colorMode, setColorMode] = useState(() => {
+  const [colorMode, _setColorMode] = useState(() => {
     const root = window.document.documentElement;
     return root.classList.contains('dark') ? 'dark' : 'light';
   });
+
+  const setColorMode = (theme) => {
+    localStorage.setItem(COLOR_MODE_STORAGE_KEY, theme);
+    _setColorMode(theme);
+  }
 
   useLayoutEffect(() => {
     const root = window.document.documentElement;

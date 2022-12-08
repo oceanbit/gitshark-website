@@ -1,5 +1,6 @@
 ---
 import "../global.scss";
+import BlockingThemeChangerScript from "./blocking-theme-changer-script.astro";
 ---
 
 <!DOCTYPE html>
@@ -11,6 +12,7 @@ import "../global.scss";
 		<slot name="head"/>
 	</head>
 	<body>
+		<BlockingThemeChangerScript />
 		<slot />
 	</body>
 </html>
