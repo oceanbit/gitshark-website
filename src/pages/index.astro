@@ -11,6 +11,7 @@ import Twitter from "../components/svgs/twitter.astro";
 import Layout from "../layouts/Layout.astro";
 import SEO from "../components/seo/seo.astro";
 import SettingsGitHubLinked from "../components/svgs/settings_github_linked.astro";
+import { DarkLightSelector } from "../components/dark-light-selector";
 
 const githubLink = "https://github.com/crutchcorn/GitShark";
 ---
@@ -104,7 +105,7 @@ const githubLink = "https://github.com/crutchcorn/GitShark";
 		</div>
 		<div class="greyBox">
 			<OneToOneRatio class={"darkSelectorOneToOne"}>
-				<!-- <DarkLightSelector class={"darkSelector"} /> -->
+				<DarkLightSelector client:only="preact" className={"darkSelector"} />
 				<SettingsDarkMode
 					class={"imagePreview svgShadow darkSelectorImage"}
 					aria-hidden={true}

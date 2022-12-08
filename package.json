@@ -1,8 +1,8 @@
 {
-	"name": "@example/basics",
-	"type": "module",
-	"version": "0.0.1",
+	"name": "gitshark-website",
+	"version": "0.2.0",
 	"private": true,
+	"description": "The website for the GitShark project",
 	"scripts": {
 		"dev": "env-cmd -f ./src/environments/dev.env astro dev",
 		"build": "astro build",
@@ -13,7 +13,12 @@
 	},
 	"dependencies": {
 		"@astrojs/image": "^0.11.6",
+		"@astrojs/preact": "^1.2.0",
+		"@emotion/react": "^11.10.5",
+		"@emotion/styled": "^11.10.5",
+		"@mui/material": "^5.10.17",
 		"astro": "^1.6.10",
+		"preact": "^10.11.3",
 		"tsparticles-engine": "^2.5.2",
 		"tsparticles-interaction-external-bubble": "^2.5.3",
 		"tsparticles-interaction-external-repulse": "^2.5.3",
@@ -40,5 +45,9 @@
 	"lint-staged": {
 		"*.{js,ts,astro}": "eslint --cache --fix",
 		"*.{js,ts,astro,jsx}": "prettier --write"
+	},
+	"overrides": {
+		"react": "npm:@preact/compat@latest",
+		"react-dom": "npm:@preact/compat@latest"
 	}
 }
