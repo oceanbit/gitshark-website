@@ -1,0 +1,61 @@
+---
+import "./play-pause-background.scss";
+
+interface PlayPauseBackgroundProps {
+	class: string;
+}
+
+const { class: className } = Astro.props as PlayPauseBackgroundProps;
+const isPaused = false;
+---
+
+<button
+	id="play-pause-button"
+	class={`playPauseBtn ${className}  ${!isPaused ? "paused" : ""}`}
+>
+	<span aria-hidden={true} class={`playPauseIcon`}></span>
+	<span class={"playPauseTxt"}>
+		<span aria-hidden={!isPaused} class={"playTxt"}>Play motion</span>
+		<span aria-hidden={isPaused} class={"pausedTxt"}>Pause motion</span>
+	</span>
+</button>
+<script>
+	const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+	let paused = mediaQuery && mediaQuery.matches;
+	const playPauseBtn = document.querySelector("#play-pause-button")!;
+	const playText = document.querySelector("#play-pause-button .playTxt")!;
+	const pauseText = document.querySelector("#play-pause-button .pausedTxt")!;
+
+	function applyPausedAttributes(pausedLocal: boolean) {
+		if (pausedLocal) {
+			playPauseBtn.classList.add("paused");
+			playText.setAttribute('aria-hidden', "true");
+			pauseText.setAttribute('aria-hidden', "false");
+			window.pauseBackground?.();
+		} else {
+			playPauseBtn.classList.remove("paused");
+			playText.setAttribute('aria-hidden', "false");
+			pauseText.setAttribute('aria-hidden', "true");
+			window.playBackground?.();
+		}
+	}
+
+	applyPausedAttributes(paused);
+
+	mediaQuery.addEventListener("change", () => {
+		if (!mediaQuery || !mediaQuery.matches) {
+			// Play;
+			paused = false;
+		} else {
+			// Pause
+			paused = true;
+		}
+		applyPausedAttributes(paused);
+	});
+
+	playPauseBtn.addEventListener("click", () => {
+		paused = !paused;
+		applyPausedAttributes(paused);
+	});
+</script>

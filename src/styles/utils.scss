@@ -18,7 +18,6 @@ $mobileBreakpoint: 600px;
   }
 }
 
-
 @mixin forDesktop() {
   @include from($mobileBreakpoint) {
     @content;

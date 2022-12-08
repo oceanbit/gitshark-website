@@ -1,0 +1,18 @@
+---
+import "../global.scss";
+import BlockingThemeChangerScript from "./blocking-theme-changer-script.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<slot name="head"/>
+	</head>
+	<body>
+		<BlockingThemeChangerScript />
+		<slot />
+	</body>
+</html>

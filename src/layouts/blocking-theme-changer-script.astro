@@ -1,0 +1,25 @@
+---
+import { COLOR_MODE_STORAGE_KEY } from "../constants/theme";
+---
+
+<script define:vars={{ COLOR_MODE_STORAGE_KEY }}>
+	const STORAGE_KEY = COLOR_MODE_STORAGE_KEY;
+
+	const mql = window.matchMedia("(prefers-color-scheme: dark)");
+	const prefersDarkFromMQ = mql.matches;
+	const prefersDarkFromLocalStorage = localStorage.getItem(STORAGE_KEY);
+
+	let colorMode = "light";
+
+	const hasUsedToggle = typeof prefersDarkFromLocalStorage === "string";
+
+	if (hasUsedToggle) {
+		colorMode = prefersDarkFromLocalStorage;
+	} else {
+		colorMode = prefersDarkFromMQ ? "dark" : "light";
+	}
+
+	let root = document.documentElement;
+
+	root.classList.add(colorMode);
+</script>

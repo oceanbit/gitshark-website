@@ -1,0 +1,13 @@
+---
+import styles from "./sixteen-to-nine-ratio.module.css";
+
+interface SixteenToNineRatioProps {
+	class?: string;
+}
+
+const { class: className } = Astro.props as SixteenToNineRatioProps;
+---
+
+<div class={`${styles.parent} ${className}`}>
+	<div class={styles.child}><slot /></div>
+</div>

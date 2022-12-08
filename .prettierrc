@@ -1,4 +1,11 @@
 {
-  "arrowParens": "avoid",
-  "semi": false
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": ["**/*.astro"],
+			"options": {
+				"parser": "astro"
+			}
+		}
+	]
 }

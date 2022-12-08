@@ -1,0 +1,148 @@
+---
+import HeaderSheet from "../components/header-sheet/header-sheet.astro";
+import OneToOneRatio from "../components/one-to-one-ratio/one-to-one-ratio.astro";
+import SixteenToNineRatio from "../components/sixteen-to-nine-ratio/sixteen-to-nine-ratio.astro";
+import BranchDropdown from "../components/svgs/branch_dropdown.astro";
+import RepositoryList from "../components/svgs/repository_list.astro";
+import SettingsDarkMode from "../components/svgs/settings_dark_mode.astro";
+import SettingsNoAccount from "../components/svgs/settings_no_account.astro";
+import GitHub from "../components/svgs/github.astro";
+import Twitter from "../components/svgs/twitter.astro";
+import Layout from "../layouts/Layout.astro";
+import SEO from "../components/seo/seo.astro";
+import SettingsGitHubLinked from "../components/svgs/settings_github_linked.astro";
+import { DarkLightSelector } from "../components/dark-light-selector";
+
+const githubLink = "https://github.com/crutchcorn/GitShark";
+---
+
+<Layout>
+	<SEO slot="head" title="GitShark - A Git client for mobile" description={`Surf through your repos, wherever you go. From changing branches, commiting data, or just navigating Git, GitShark has you covered!`}/>
+	<HeaderSheet>
+		<!-- <SEO /> -->
+		<h1 class="displayHeader">
+			Surf through your repos, <br />
+			wherever you go. 🦈
+		</h1>
+		<p class="body2Text">
+			GitShark is a mobile git client (or, as I like to call them, "Git GUIs")
+			that allows you to manage repositories, checkout branches, write and
+			commit changes and much more, right from your mobile device.
+		</p>
+		<a class="body2Text twitterButton" href="https://twitter.com/GitShark">
+			<p>Keep up-to-date with our development on Twitter!</p>
+			<Twitter aria-hidden={true} />
+		</a>
+		<hr />
+		<!-- <OutOnAndroid /> -->
+		<p class="body2Text">
+			iOS and Desktop versions are coming soon!
+			<br />
+			You can sign up to receive alerts when we have something to share.
+		</p>
+		<!-- <MailingList /> -->
+		<p class="dontWorry">Don’t worry, we hate spam more than you do.</p>
+		<div class="screenshotRow">
+			<div class="repositories">
+				<OneToOneRatio>
+					<div class="greyBox">
+						<RepositoryList class="imagePreview svgShadow" role={"img"} />
+					</div>
+				</OneToOneRatio>
+				<div class={"featureDescribeContainer"}>
+					<h2 class={"featureTitle"}>Repositories</h2>
+					<p class="featureBody">
+						Create, clone, add and manage all of your repositories right from
+						your mobile device!
+					</p>
+				</div>
+			</div>
+			<div class="branches">
+				<OneToOneRatio>
+					<div class="greyBox">
+						<BranchDropdown class="imagePreview svgShadow" role={"img"} />
+					</div>
+				</OneToOneRatio>
+				<div class={"featureDescribeContainer"}>
+					<h2 class={"featureTitle"}>Branches</h2>
+					<p class="featureBody">
+						View local branches' status, check their history and add new ones.
+						Even track remote branches, right from GitShark
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- <SeperateToOverlapImages /> -->
+		<div class={"featureDescribeContainer featureMargin"}>
+			<h2 class={"featureTitle"}>Tree & Commits</h2>
+			<p class="featureBody">
+				Track the progress of your repo over time. Complete with a visual
+				representation of where your branches and remotes are at present.
+				Further introspection for commits including individual file diffs
+			</p>
+		</div>
+		<div class="greyBox githubContainer">
+			<SettingsNoAccount
+				class={"gitHubImages noGHAccountImg imagePreview svgShadow"}
+				aria-hidden={true}
+			/>
+			<!-- <AnimatedLine class={"leftLine"} isBGPaused={isBGPaused} /> -->
+			<GitHub class={"githubLogo"} aria-hidden={true} />
+			<!-- <AnimatedLine class={"rightLine"} isBGPaused={isBGPaused} /> -->
+			<SettingsGitHubLinked
+				class={"gitHubImages ghAccountImg imagePreview svgShadow"}
+				role={"img"}
+			/>
+		</div>
+		<div class={"featureDescribeContainer featureMargin"}>
+			<h2 class={"featureTitle"} id={"github-integration-header"}>
+				GitHub integration
+			</h2>
+			<p class="featureBody" id={"github-integration-body"}>
+				GitShark's single-button GitHub sign-in enables you to quickly login for
+				rapid repository access
+			</p>
+		</div>
+		<div class="greyBox">
+			<OneToOneRatio class={"darkSelectorOneToOne"}>
+				<DarkLightSelector client:only="preact" className={"darkSelector"} />
+				<SettingsDarkMode
+					class={"imagePreview svgShadow darkSelectorImage"}
+					aria-hidden={true}
+				/>
+			</OneToOneRatio>
+		</div>
+		<div class={"featureDescribeContainer featureMargin"}>
+			<h2 class={"featureTitle"}>Dark mode</h2>
+			<p class="featureBody">
+				Go ahead. Try it. Really, press the button{" "}
+				<span
+					role={"img"}
+					aria-label={"The dark mode buttons really change the website colors!"}
+				>
+					😉
+				</span>
+			</p>
+		</div>
+		<div class="greyBox">
+			<SixteenToNineRatio>
+				<a
+					class={"gitHubImage"}
+					href={githubLink}
+					aria-label={"The GitShark GitHub page"}></a>
+			</SixteenToNineRatio>
+		</div>
+		<div class={"featureDescribeContainer featureMargin"}>
+			<h2 class={"featureTitle"}>Fully open-source</h2>
+			<p class="featureBody">
+				Programs made <i>for</i> developers should be accessible <i>to</i>{" "}
+				developers, no? We think so, anyway. That's why GitShark is{" "}
+				<a href={githubLink}>100% open source</a>, ready to compile. We welcome
+				all kinds of contributions as well! Want to see a new feature in the
+				app? PR it and we'll get it mainlined!
+			</p>
+		</div>
+		<hr />
+		<!-- <MailingList class="bottomMailing" /> -->
+	</HeaderSheet>
+</Layout>

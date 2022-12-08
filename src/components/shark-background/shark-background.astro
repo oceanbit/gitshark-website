@@ -1,0 +1,393 @@
+---
+import "./shark-background.css";
+---
+
+<div class="sharkBGContainer">
+	<div class="lighting"></div>
+	<div class="sharkBG">
+		<!-- Waves -->
+		<div
+			data-height="200"
+			data-amplitude="300"
+			data-speed="0.06"
+			data-points="2"
+			style={{
+				height: "50%",
+				width: "100%",
+				position: "absolute",
+				top: 0,
+				transform: "rotate(180deg) scaleX(-1)",
+			}}
+			id="wave1"
+		>
+			<svg
+				width="100%"
+				height="100%"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path d="" fill="url(#topGradient)"></path>
+			</svg>
+		</div>
+		<div
+			data-height="100"
+			data-amplitude="250"
+			data-speed="0.08"
+			data-points="window.innerWidth > 1199 ? 3 : 2"
+			style={{
+				height: "70%",
+				width: "100%",
+				position: "absolute",
+				bottom: 0,
+			}}
+			id="wave2"
+		>
+			<svg
+				width="100%"
+				height="100%"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path d="" fill="url(#topGradient)"></path>
+			</svg>
+		</div>
+		<div
+			data-height="100"
+			data-amplitude="200"
+			data-speed="0.12"
+			data-points="window.innerWidth > 1199 ? 3 : 2"
+			style={{
+				minHeight: "200px",
+				height: "40%",
+				width: "100%",
+				position: "absolute",
+				bottom: 0,
+			}}
+			id="wave3"
+		>
+			<svg
+				width="0"
+				height="0"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path d="" fill="url(#topGradient)"></path>
+			</svg>
+		</div>
+		<svg>
+			<defs>
+				<linearGradient
+					id="topGradient"
+					gradientTransform="rotate(-20)"
+					x1="0"
+					x2="1"
+					y1="0.2"
+					y2="0.4"
+				>
+					<stop offset="0%" stop-color="var(--wave_start)"></stop>
+					<stop offset="70%" stop-color="var(--wave_end)"></stop>
+				</linearGradient>
+			</defs>
+		</svg>
+		<div id="particles" class="particlesContainer"></div>
+	</div>
+
+	<script>
+		// Modified and adapted from https://codepen.io/grimor/pen/qbXLdN
+		const waveContainerIds = ["wave1", "wave2", "wave3"];
+
+		const waveMetas = waveContainerIds.map((waveContainerId) => {
+			const container = document.getElementById(waveContainerId)!;
+			const { height, width } = container.getBoundingClientRect();
+			const wavePath = container.querySelector("path")!;
+			const waveHeight = Number(container.dataset.height || 0) || 0;
+			const waveDelta = Number(container.dataset.amplitude || 0) || 0;
+			const waveSpeed = Number(container.dataset.speed || 0) || 0;
+			const wavePoints = container.dataset.points;
+
+			return {
+				container,
+				height,
+				width,
+				wavePath,
+				waveHeight,
+				waveDelta,
+				waveSpeed,
+				wavePoints,
+			};
+		});
+
+		function calculateWavePoints(
+			factor: number,
+			{
+				wavePoints,
+				waveWidth,
+				waveSpeed,
+				waveDelta,
+				waveHeight,
+			}: {
+				wavePoints: number;
+				waveWidth: number;
+				waveSpeed: number;
+				waveDelta: number;
+				waveHeight: number;
+			}
+		) {
+			var points: Array<{ x: number; y: number }> = [];
+
+			for (var i = 0; i <= wavePoints; i++) {
+				var x = (i / wavePoints) * waveWidth;
+				var sinSeed = (factor + (i + (i % wavePoints))) * waveSpeed * 100;
+				var sinHeight = Math.sin(sinSeed / 100) * waveDelta;
+				var yPos = Math.sin(sinSeed / 100) * sinHeight + waveHeight;
+				points.push({ x: x, y: yPos });
+			}
+
+			return points;
+		}
+
+		function buildPath(
+			points: Array<{ x: number; y: number }>,
+			{
+				width,
+				height,
+			}: {
+				width: number;
+				height: number;
+			}
+		) {
+			var SVGString = "M " + points[0]!.x + " " + points[0]!.y;
+
+			var cp0 = {
+				x: (points[1]!.x - points[0]!.x) / 2,
+				y:
+					points[1]!.y -
+					points[0]!.y +
+					points[0]!.y +
+					(points[1]!.y - points[0]!.y),
+			};
+
+			SVGString +=
+				" C " +
+				cp0.x +
+				" " +
+				cp0.y +
+				" " +
+				cp0.x +
+				" " +
+				cp0.y +
+				" " +
+				points[1]!.x +
+				" " +
+				points[1]!.y;
+
+			var prevCp = cp0;
+			var inverted = -1;
+
+			for (var i = 1; i < points.length - 1; i++) {
+				var cp1 = {
+					x: points[i]!.x - prevCp.x + points[i]!.x,
+					y: points[i]!.y - prevCp.y + points[i]!.y,
+				};
+
+				SVGString +=
+					" C " +
+					cp1.x +
+					" " +
+					cp1.y +
+					" " +
+					cp1.x +
+					" " +
+					cp1.y +
+					" " +
+					points[i + 1]!.x +
+					" " +
+					points[i + 1]!.y;
+				prevCp = cp1;
+				inverted = -inverted;
+			}
+
+			SVGString += " L " + width + " " + height;
+			SVGString += " L 0 " + height + " Z";
+			return SVGString;
+		}
+
+		var lastUpdate: number;
+		var totalTime = 0;
+
+		const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+		var enable = !mediaQuery || !mediaQuery.matches;
+		var hasFrameDrawn = false;
+
+		window.pauseWaves = () => {
+			enable = false;
+		};
+
+		window.playWaves = () => {
+			enable = true;
+		};
+
+		function tick() {
+			var now = window.Date.now();
+
+			if ((enable || !hasFrameDrawn) && lastUpdate) {
+				var elapsed = (now - lastUpdate) / 1000;
+				lastUpdate = now;
+
+				totalTime += elapsed;
+
+				var factor = totalTime * Math.PI;
+				waveMetas.forEach((waveMeta) => {
+					const wavePoints = eval(waveMeta.wavePoints || "2");
+					waveMeta.wavePath.setAttribute(
+						"d",
+						buildPath(
+							calculateWavePoints(factor, {
+								wavePoints: wavePoints,
+								waveWidth: waveMeta.width,
+								waveSpeed: waveMeta.waveSpeed,
+								waveDelta: waveMeta.waveDelta,
+								waveHeight: waveMeta.waveHeight,
+							}),
+							{ height: waveMeta.height, width: waveMeta.width }
+						)
+					);
+				});
+				hasFrameDrawn = true;
+			} else {
+				lastUpdate = now;
+			}
+
+			window.requestAnimationFrame(tick);
+		}
+		tick();
+	</script>
+
+	<script>
+		import { tsParticles } from "tsparticles-engine";
+		import { loadBaseMover } from "tsparticles-move-base";
+		import { loadImageShape } from "tsparticles-shape-image";
+		import { loadSizeUpdater } from "tsparticles-updater-size";
+		import { loadOpacityUpdater } from "tsparticles-updater-opacity";
+		import { loadColorUpdater } from "tsparticles-updater-color";
+		import { loadExternalRepulseInteraction } from "tsparticles-interaction-external-repulse";
+		import { loadExternalBubbleInteraction } from "tsparticles-interaction-external-bubble";
+
+		await loadBaseMover(tsParticles);
+		await loadImageShape(tsParticles);
+		await loadSizeUpdater(tsParticles);
+		await loadOpacityUpdater(tsParticles);
+		await loadColorUpdater(tsParticles);
+		await loadExternalBubbleInteraction(tsParticles);
+		await loadExternalRepulseInteraction(tsParticles);
+
+		const particlesContainer = await tsParticles.load("particles", {
+			particles: {
+				number: {
+					value: 30,
+					density: {
+						enable: true,
+						value_area: 800,
+					},
+				},
+				color: {
+					value: "#000",
+				},
+				opacity: {
+					value: 1,
+					random: true,
+					anim: {
+						enable: false,
+						speed: 1,
+						opacity_min: 0.1,
+						sync: false,
+					},
+				},
+				shape: {
+					type: "image",
+					image: {
+						src: "/bubble.png",
+						width: 64,
+						height: 64,
+					},
+				},
+				size: {
+					value: 20,
+					random: true,
+					anim: {
+						enable: false,
+						speed: 10,
+						size_min: 10,
+						sync: false,
+					},
+				},
+				line_linked: {
+					enable: false,
+				},
+				move: {
+					enable: true,
+					speed: 1,
+					random: true,
+					direction: "top",
+					out_mode: "out",
+					bounce: false,
+				},
+			},
+			interactivity: {
+				detect_on: "window",
+				events: {
+					onhover: {
+						enable: true,
+						mode: "repulse",
+					},
+				},
+				modes: {
+					bubble: {
+						distance: 600,
+						size: 30,
+						duration: 0.1,
+						opacity: 1,
+						speed: 300,
+					},
+					repulse: {
+						distance: 20,
+						duration: 1,
+						speed: 0.2,
+					},
+				},
+			},
+		});
+
+		const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+		const enable = !mediaQuery || !mediaQuery.matches;
+
+		if (!enable) {
+			requestAnimationFrame((timestamp) => {
+				particlesContainer!.frameManager.nextFrame(timestamp);
+				requestAnimationFrame(() => {
+					particlesContainer!.pause();
+				});
+			});
+		}
+
+		window.pauseParticles = () => {
+			particlesContainer!.pause();
+		};
+
+		window.playParticles = () => {
+			particlesContainer!.play();
+		};
+	</script>
+	<script>
+		window.playBackground = () => {
+			window.playParticles?.();
+			window.playWaves?.();
+		}
+
+		window.pauseBackground = () => {
+			window.pauseParticles?.();
+			window.pauseWaves?.();
+		}
+	</script>
+</div>

@@ -1,0 +1,35 @@
+---
+import styles from "./header-sheet.module.scss";
+import SharkBackground from "../shark-background/shark-background.astro";
+import PlayPauseBackground from "../play-pause-background/play-pause-background.astro";
+import { Picture } from "@astrojs/image/components";
+---
+
+<div style={{ minHeight: "100vh" }}>
+	<div class={styles.sharkBackground}>
+		<SharkBackground />
+	</div>
+	<div class={styles.sharkHeader}>
+		<Picture
+			sizes="580px"
+			widths={[580]}
+			loading={"eager"}
+			src={import("../../../public/shark_header.png")}
+			formats={["webp", "png"]}
+			alt={"GitShark"}
+		/>
+		<PlayPauseBackground class={styles.playPauseIndexBtn} />
+	</div>
+	<div class={styles.bodySheetSpacer}></div>
+	<div class={styles.bodySheet}>
+		<slot />
+		<div class={styles.termSheet}>
+			<a href={"/"}>Home</a>
+			<a href={"/terms"}>Terms and Conditions</a>
+			<a href={"/privacy"}>Privacy Policy</a>
+		</div>
+		<div class={styles.disclaimer}>
+			<p>Google Play and the Google Play logo are trademarks of Google LLC.</p>
+		</div>
+	</div>
+</div>
